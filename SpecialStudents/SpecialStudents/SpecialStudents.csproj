@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{97129B3E-BFDF-4D4D-95D2-EF3985A1B7A4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SpecialStudents</RootNamespace>
+    <AssemblyName>SpecialStudents</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells_201402, Version=7.7.1.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\Aspose.Cells_201402.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=9.5.0.1, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="FISCA, Version=2.5.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.Data, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.DSAUtil, Version=3.9.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.DSAUtil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.Permission, Version=1.2.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.Permission.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.Presentation, Version=1.1.0.19, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\FISCA.Presentation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="K12.BusinessLogic, Version=1.4.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\K12.BusinessLogic.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="K12.Data, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\K12.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="K12.Presentation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\K12.Presentation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Permissions.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SetConfig.cs" />
+    <Compile Include="SortClassIndex.cs" />
+    <Compile Include="Special\AttendanceScClick.cs" />
+    <Compile Include="Special\BalanceConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Special\BalanceConfigForm.designer.cs">
+      <DependentUpon>BalanceConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Special\DemeritScClick.cs" />
+    <Compile Include="Special\MeritScClick.cs" />
+    <Compile Include="Special\NoAbsenceScClick.cs" />
+    <Compile Include="Special\PrintObj.cs" />
+    <Compile Include="Special\SpecialForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Special\SpecialForm.designer.cs">
+      <DependentUpon>SpecialForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentSortObj.cs" />
+    <Compile Include="tool.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Special\BalanceConfigForm.resx">
+      <DependentUpon>BalanceConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Special\SpecialForm.resx">
+      <DependentUpon>SpecialForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Library\Aspose.Cells_201402.dll" />
+    <Content Include="Library\Aspose.Cells_201402.xml" />
+    <Content Include="Library\DevComponents.DotNetBar2.dll" />
+    <Content Include="Library\FISCA.Data.dll" />
+    <Content Include="Library\FISCA.Data.pdb" />
+    <Content Include="Library\FISCA.Data.xml" />
+    <Content Include="Library\FISCA.dll" />
+    <Content Include="Library\FISCA.DSAUtil.dll" />
+    <Content Include="Library\FISCA.DSAUtil.pdb" />
+    <Content Include="Library\FISCA.DSAUtil.xml" />
+    <Content Include="Library\FISCA.pdb" />
+    <Content Include="Library\FISCA.Permission.dll" />
+    <Content Include="Library\FISCA.Permission.pdb" />
+    <Content Include="Library\FISCA.Permission.xml" />
+    <Content Include="Library\FISCA.Presentation.dll" />
+    <Content Include="Library\FISCA.Presentation.pdb" />
+    <Content Include="Library\FISCA.Presentation.xml" />
+    <Content Include="Library\K12.BusinessLogic.dll" />
+    <Content Include="Library\K12.BusinessLogic.pdb" />
+    <Content Include="Library\K12.BusinessLogic.xml" />
+    <Content Include="Library\K12.Data.dll" />
+    <Content Include="Library\K12.Data.pdb" />
+    <Content Include="Library\K12.Data.xml" />
+    <Content Include="Library\K12.Presentation.dll" />
+    <Content Include="Library\K12.Presentation.xml" />
+    <None Include="Resources\attendance_list_ok_64.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
