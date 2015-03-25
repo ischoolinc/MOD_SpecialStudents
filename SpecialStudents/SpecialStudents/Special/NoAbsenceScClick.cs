@@ -22,17 +22,17 @@ namespace SpecialStudents
         //報表專用
         Workbook book;
 
-        //自動統計內容
-        List<AutoSummaryRecord> AutoSummaryList;
+        StudentAbsence _sa { get; set; }
 
         //系統缺曠別
-        public Dictionary<string, bool> AttendanceIsNoabsence = new Dictionary<string, bool>();
+        public Dictionary<string, bool> _AttendanceIsNoabsence = new Dictionary<string, bool>();
 
         SetConfig _sc { get; set; }
 
-        public void print(SetConfig sc)
+        public void print(SetConfig sc, Dictionary<string, bool> AttendanceIsNoabsence)
         {
             _sc = sc;
+            _AttendanceIsNoabsence = AttendanceIsNoabsence;
 
             BGW.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BGW_RunWorkerCompleted);
             BGW.DoWork += new DoWorkEventHandler(BGW_DoWork);
@@ -44,61 +44,37 @@ namespace SpecialStudents
         void BGW_DoWork(object sender, DoWorkEventArgs e)
         {
             obj = new PrintObj();
-            AutoSummaryList = new List<AutoSummaryRecord>();
 
-            List<string> StudentNoAbsenceList = new List<string>(); //全勤的學生清單
-            List<string> StudentAbsenceList = new List<string>(); //有缺曠的學生清單
-
-            List<string> _StudentIDList = _sc._StudentList.Select(x => x.ID).ToList();
-            AutoSummaryList.Clear();
+            List<string> _StudentIDList = _sc.GetStudentIdList();
 
             if (_sc._selectMode == SelectMode.所有學期)
             {
                 //取得AutoSummary
-                AutoSummaryList = AutoSummary.Select(_StudentIDList, new List<SchoolYearSemester>(), SummaryType.Attendance);
+                List<AutoSummaryRecord> AutoSummaryList = AutoSummary.Select(_StudentIDList, new List<SchoolYearSemester>(), SummaryType.Attendance);
 
-            }
-            else if (_sc._selectMode == SelectMode.依日期)
-            {
-
-
-
+                _sa = GetSABySchoolYear(AutoSummaryList);
 
 
             }
-            else
+            else if (_sc._selectMode == SelectMode.依學期)
             {
                 //取得AutoSummary
                 SchoolYearSemester SYS = new SchoolYearSemester(_sc._SchoolYear, _sc._Semester);
-                AutoSummaryList = AutoSummary.Select(_StudentIDList, new SchoolYearSemester[] { SYS }, SummaryType.Attendance);
-            }
+                List<AutoSummaryRecord> AutoSummaryList = AutoSummary.Select(_StudentIDList, new SchoolYearSemester[] { SYS }, SummaryType.Attendance);
 
-            #region 篩選出有記錄的學生(包含影響的缺曠)
-            foreach (AutoSummaryRecord each in AutoSummaryList)
-            {
-                foreach (AbsenceCountRecord count in each.AbsenceCounts)
-                {
-                    if (count.Count == 0)
-                        continue;
-                    if (!AttendanceIsNoabsence.ContainsKey(count.Name)) //不包含假別中就離開
-                        continue;
-                    if (!AttendanceIsNoabsence[count.Name]) //True就是不影響全勤
-                    {
-                        if (!StudentAbsenceList.Contains(each.RefStudentID)) //如果沒有就加入
-                        {
-                            StudentAbsenceList.Add(each.RefStudentID);
-                        }
-                    }
-                }
+                _sa = GetSABySchoolYear(AutoSummaryList);
             }
-            #endregion
+            else
+            {
+                _sa = GetSAByDate();
+            }
 
             //排除有影響的學生就是我要的學生
             foreach (StudentRecord each in _sc._StudentList) //
             {
-                if (!StudentAbsenceList.Contains(each.ID)) //不包含在有資料清單內
+                if (!_sa.StudentAbsenceList.Contains(each.ID)) //不包含在有資料清單內
                 {
-                    StudentNoAbsenceList.Add(each.ID); //有全勤的學生
+                    _sa.StudentNoAbsenceList.Add(each.ID); //有全勤的學生
                 }
             }
 
@@ -112,12 +88,20 @@ namespace SpecialStudents
             string A1Name = School.ChineseName + "　全勤學生清單";
             if (_sc._selectMode == SelectMode.依學期)
             {
-                A1Name += "　(" + _sc._SchoolYear.ToString() + "/" + _sc._Semester.ToString() + ")";
+                A1Name += "　(" + _sc._SchoolYear.ToString() + " / " + _sc._Semester.ToString() + ")";
+            }
+            else if (_sc._selectMode == SelectMode.依日期)
+            {
+                A1Name += "　(" + _sc.StartDate.ToShortDateString() + " ~ " + _sc.EndDate.ToShortDateString() + ")";
+            }
+            else
+            {
+                A1Name += "(所有學期)";
             }
 
-            A1.PutValue(A1Name);
-
-            sheet.Cells.Merge(0, 0, 1, 5);
+            //A1.PutValue(A1Name);
+            obj.FormatCell(A1, A1Name);
+            //sheet.Cells.Merge(0, 0, 1, 5);
 
             obj.FormatCell(sheet.Cells["A2"], "編號");
             obj.FormatCell(sheet.Cells["B2"], "班級");
@@ -127,7 +111,7 @@ namespace SpecialStudents
 
             int index = 1;
 
-            List<StudentRecord> studentList = Student.SelectByIDs(StudentNoAbsenceList);
+            List<StudentRecord> studentList = Student.SelectByIDs(_sa.StudentNoAbsenceList);
 
             studentList = SortClassIndex.K12Data_StudentRecord(studentList);
 
@@ -143,17 +127,89 @@ namespace SpecialStudents
             }
         }
 
+        private StudentAbsence GetSAByDate()
+        {
+            StudentAbsence sa = new StudentAbsence();
+            List<AttendanceRecord> AttendList = K12.Data.Attendance.SelectByDate(_sc._StudentList, _sc.StartDate, _sc.EndDate);
+
+            foreach (AttendanceRecord ar in AttendList)
+            {
+                if (ar.PeriodDetail.Count == 0)
+                    continue;
+
+                foreach (AttendancePeriod perid in ar.PeriodDetail)
+                {
+                    //是否影響全勤判斷
+                    //不包含假別中就離開
+                    if (!_AttendanceIsNoabsence.ContainsKey(perid.AbsenceType))
+                        continue;
+
+                    if (!_AttendanceIsNoabsence[perid.AbsenceType]) //True就是不影響全勤
+                    {
+                        if (!sa.StudentAbsenceList.Contains(ar.RefStudentID)) //如果沒有就加入
+                        {
+                            sa.StudentAbsenceList.Add(ar.RefStudentID);
+                            break;
+                        }
+                    }
+                }
+            }
+
+
+            return sa;
+        }
+
+        /// <summary>
+        /// 取得缺曠學生
+        /// 所有學期 or 單一學期
+        /// </summary>
+        /// <param name="AutoSummaryList"></param>
+        /// <returns></returns>
+        private StudentAbsence GetSABySchoolYear(List<AutoSummaryRecord> AutoSummaryList)
+        {
+            StudentAbsence sa = new StudentAbsence();
+
+            foreach (AutoSummaryRecord each in AutoSummaryList)
+            {
+                foreach (AbsenceCountRecord count in each.AbsenceCounts)
+                {
+                    if (count.Count == 0)
+                        continue;
+
+                    if (!_AttendanceIsNoabsence.ContainsKey(count.Name)) //不包含假別中就離開
+                        continue;
+
+                    if (!_AttendanceIsNoabsence[count.Name]) //True就是不影響全勤
+                    {
+                        if (!sa.StudentAbsenceList.Contains(each.RefStudentID)) //如果沒有就加入
+                        {
+                            sa.StudentAbsenceList.Add(each.RefStudentID);
+                        }
+                    }
+                }
+            }
+
+            return sa;
+        }
+
         void BGW_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (e.Error == null)
+            if (!e.Cancelled)
             {
-                obj.PrintNow(book, "全勤學生清單");
-                FISCA.Presentation.MotherForm.SetStatusBarMessage("列印全勤學生清單,已完成!");
+                if (e.Error == null)
+                {
+                    obj.PrintNow(book, "全勤學生清單");
+                    FISCA.Presentation.MotherForm.SetStatusBarMessage("列印全勤學生清單,已完成!");
+                }
+                else
+                {
+                    MsgBox.Show("列印時發生錯誤!!" + e.Error.Message);
+                    FISCA.Presentation.MotherForm.SetStatusBarMessage("列印全勤學生清單,發生錯誤!");
+                }
             }
             else
             {
-                MsgBox.Show("列印時發生錯誤!!" + e.Error.Message);
-                FISCA.Presentation.MotherForm.SetStatusBarMessage("列印全勤學生清單,發生錯誤!");
+                MsgBox.Show("列印作業已中止!");
             }
         }
     }

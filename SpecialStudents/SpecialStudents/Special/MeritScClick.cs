@@ -26,28 +26,24 @@ namespace SpecialStudents
         //自動統計內容
         List<AutoSummaryRecord> AutoSummaryList;
 
-        //懲戒資料清單
-        Dictionary<string, List<DemeritRecord>> DicByDemerit = new Dictionary<string, List<DemeritRecord>>();
-        //獎勵資料清單
-        Dictionary<string, List<MeritRecord>> DicByMerit = new Dictionary<string, List<MeritRecord>>();
-
-        string _tbMeritA;
-        string _tbMeritB;
-        string _tbMeritC;
         bool _cbxIgnoreDemerit;
         bool _cbxDemeritIsNull;
         bool _cbxIsDemeritClear;
 
+        /// <summary>
+        /// 設定內容
+        /// </summary>
         SetConfig _sc { get; set; }
 
-        public void print(SetConfig sc, TextBoxX tbMeritA, TextBoxX tbMeritB, TextBoxX tbMeritC,
-            CheckBoxX cbxIgnoreDemerit, CheckBoxX cbxDemeritIsNull, CheckBoxX cbxIsDemeritClear)
+        /// <summary>
+        /// 資料整理
+        /// </summary>
+        TotalObj _tb { get; set; }
+
+        public void print(SetConfig sc, CheckBoxX cbxIgnoreDemerit, CheckBoxX cbxDemeritIsNull, CheckBoxX cbxIsDemeritClear)
         {
             _sc = sc;
 
-            _tbMeritA = tbMeritA.Text;
-            _tbMeritB = tbMeritB.Text;
-            _tbMeritC = tbMeritC.Text;
             _cbxIgnoreDemerit = cbxIgnoreDemerit.Checked;
             _cbxDemeritIsNull = cbxDemeritIsNull.Checked;
             _cbxIsDemeritClear = cbxIsDemeritClear.Checked;
@@ -61,54 +57,34 @@ namespace SpecialStudents
         void BGW_DoWork(object sender, DoWorkEventArgs e)
         {
             obj = new PrintObj();
-            if (obj.CheckTextBox(_tbMeritA, _tbMeritB, _tbMeritC))
-            {
-                MsgBox.Show("獎勵次數必須輸入數字!");
-                return;
-            }
 
             AutoSummaryList = new List<AutoSummaryRecord>();
 
-            List<string> _StudentIDList = _sc._StudentList.Select(x => x.ID).ToList();
-            List<string> studentUbeIDList = new List<string>();
+            List<string> _StudentIDList = _sc.GetStudentIdList();
+
+            _sc.GetMerReduce();
+
+            _tb = new TotalObj();
 
             if (_sc._selectMode == SelectMode.所有學期) //依選擇學期
             {
                 //取得AutoSummary
                 AutoSummaryList = AutoSummary.Select(_StudentIDList, new List<SchoolYearSemester>(), SummaryType.Discipline);
 
+                _tb.GetSummary(AutoSummaryList);
             }
-            else if (_sc._selectMode == SelectMode.依日期)
-            {
-
-
-
-
-            }
-            else
+            else if (_sc._selectMode == SelectMode.依學期)
             {
                 //取得AutoSummary
                 SchoolYearSemester SYS = new SchoolYearSemester(_sc._SchoolYear, _sc._Semester);
                 AutoSummaryList = AutoSummary.Select(_StudentIDList, new SchoolYearSemester[] { SYS }, SummaryType.Discipline);
+
+                _tb.GetSummary(AutoSummaryList);
             }
-
-            #region 取得換算原則
-
-            MeritDemeritReduceRecord record = K12.Data.MeritDemeritReduce.Select();
-            int ab = record.MeritAToMeritB.HasValue ? record.MeritAToMeritB.Value : 1;
-            int bc = record.MeritBToMeritC.HasValue ? record.MeritBToMeritC.Value : 1;
-
-            //三個欄位的內容
-            //大功
-            int wa = int.Parse(_tbMeritA);
-            //小功
-            int wb = int.Parse(_tbMeritB);
-            //嘉獎
-            int wc = int.Parse(_tbMeritC);
-
-            //計算出基數
-            int want = (wa * ab * bc) + (wb * bc) + wc;
-            #endregion
+            else
+            {
+                _tb.GetDetail(_sc);
+            }
 
             #region 表頭&相關資料準備
             book = new Workbook();
@@ -127,10 +103,19 @@ namespace SpecialStudents
             {
                 A1Name += "　(" + _sc._SchoolYear.ToString() + "/" + _sc._Semester.ToString() + ")";
             }
+            else if (_sc._selectMode == SelectMode.依日期)
+            {
+                A1Name += "　(" + _sc.StartDate.ToShortDateString() + "~" + _sc.EndDate.ToShortDateString() + ")";
+            }
+            else
+            {
+                A1Name += "(所有學期)";
+            }
 
-            A1.PutValue(A1Name);
+            obj.FormatCell(A1, A1Name);
+            //A1.PutValue(A1Name);
 
-            sheet.Cells.Merge(0, 0, 1, 7);
+            //sheet.Cells.Merge(0, 0, 1, 7);
 
             obj.FormatCell(sheet.Cells["A2"], "班級");
             obj.FormatCell(sheet.Cells["B2"], "座號");
@@ -140,35 +125,8 @@ namespace SpecialStudents
             obj.FormatCell(sheet.Cells["F2"], "小功");
             obj.FormatCell(sheet.Cells["G2"], "嘉獎");
 
-            DicByDemerit.Clear();
-            DicByMerit.Clear();
-            studentUbeIDList.Clear();
-
             //AutoSummaryList.Sort(new SortClass().SortAutoSummaryRecord); 
 
-            #endregion
-
-            #region 整理獎懲資料清單
-            foreach (AutoSummaryRecord each in AutoSummaryList)
-            {
-                foreach (MeritRecord merit in each.Merits)
-                {
-                    if (!DicByMerit.ContainsKey(merit.RefStudentID))
-                    {
-                        DicByMerit.Add(merit.RefStudentID, new List<MeritRecord>());
-                    }
-                    DicByMerit[merit.RefStudentID].Add(merit);
-                }
-
-                foreach (DemeritRecord demerit in each.Demerits)
-                {
-                    if (!DicByDemerit.ContainsKey(demerit.RefStudentID))
-                    {
-                        DicByDemerit.Add(demerit.RefStudentID, new List<DemeritRecord>());
-                    }
-                    DicByDemerit[demerit.RefStudentID].Add(demerit);
-                }
-            }
             #endregion
 
             int index = 1;
@@ -176,18 +134,17 @@ namespace SpecialStudents
             #region 處理獎勵資料列印1
 
             //處理排序問題
-            Dictionary<string, List<AutoSummaryRecord>> AutoList = new Dictionary<string, List<AutoSummaryRecord>>();
-            foreach (AutoSummaryRecord each in AutoSummaryList)
-            {
-                if (!AutoList.ContainsKey(each.RefStudentID))
-                {
-                    AutoList.Add(each.RefStudentID, new List<AutoSummaryRecord>());
-                }
+            List<string> StudentIDList = new List<string>();
 
-                AutoList[each.RefStudentID].Add(each);
+            foreach (string studentID in _tb.DicByMerit.Keys)
+            {
+                if (!StudentIDList.Contains(studentID))
+                {
+                    StudentIDList.Add(studentID);
+                }
             }
-            List<StudentRecord> StudentList = Student.SelectByIDs(AutoList.Keys);
-            StudentList = SortClassIndex.K12Data_StudentRecord(StudentList);
+
+            List<StudentRecord> StudentList = SortClassIndex.K12Data_StudentRecord(Student.SelectByIDs(StudentIDList));
 
 
             foreach (StudentRecord student in StudentList)
@@ -201,18 +158,23 @@ namespace SpecialStudents
                 int MeritB = 0;
                 int MeritC = 0;
 
-                foreach (AutoSummaryRecord each in AutoList[student.ID])
+                foreach (MeritRecord each in _tb.DicByMerit[student.ID])
                 {
-                    total += (each.MeritA * ab * bc) + (each.MeritB * bc) + (each.MeritC);
+                    int A = each.MeritA.HasValue ? each.MeritA.Value : 0;
+                    int B = each.MeritB.HasValue ? each.MeritB.Value : 0;
+                    int C = each.MeritC.HasValue ? each.MeritC.Value : 0;
 
-                    MeritA += each.MeritA;
-                    MeritB += each.MeritB;
-                    MeritC += each.MeritC;
+                    total += (A * _sc.Meritab * _sc.Meritbc) + (B * _sc.Meritbc) + (C);
+
+                    MeritA += A;
+                    MeritB += B;
+                    MeritC += C;
                 }
 
-                if (total < want || total == 0) continue; //如果小於基底數,就下一個學生
+                //如果小於基底數,就下一個學生
+                if (total < _sc.Meritwant || total == 0) continue;
 
-                studentUbeIDList.Add(student.ID);
+                _tb.studentUbeIDList.Add(student.ID);
 
                 int rowIndex = index + 2;
                 obj.FormatCell(sheet.Cells["A" + rowIndex], student.Class.Name);
@@ -235,7 +197,7 @@ namespace SpecialStudents
             titleCell = tool.UserStyle(titleCell);
 
             titleCell.PutValue(School.ChineseName + "　獎勵累計明細");
-            sheet2.Cells.Merge(0, 0, 1, 12);
+            //sheet2.Cells.Merge(0, 0, 1, 12);
 
             #region 欄位Title
             obj.FormatCell(sheet2.Cells["A2"], "班級");
@@ -259,32 +221,30 @@ namespace SpecialStudents
                 if (UsingDemeritData(student.ID, _cbxIgnoreDemerit, _cbxDemeritIsNull, _cbxIsDemeritClear))//依使用者選擇的條件進行處理
                     continue;
 
-                if (!studentUbeIDList.Contains(student.ID)) //如果不包含於列印清單
+                if (!_tb.studentUbeIDList.Contains(student.ID)) //如果不包含於列印清單
                     continue;
 
-                foreach (AutoSummaryRecord each in AutoList[student.ID])
+                foreach (MeritRecord merit in _tb.DicByMerit[student.ID])
                 {
-                    foreach (MeritRecord merit in each.Merits)
-                    {
 
-                        //StudentRecord student = JHStudent.SelectByID(each.RefStudentID); //取得學生
+                    //StudentRecord student = JHStudent.SelectByID(each.RefStudentID); //取得學生
 
-                        obj.FormatCell(sheet2.Cells["A" + ri], student.Class.Name);
-                        obj.FormatCell(sheet2.Cells["B" + ri], student.SeatNo.HasValue ? student.SeatNo.Value.ToString() : "");
-                        obj.FormatCell(sheet2.Cells["C" + ri], student.Name);
-                        obj.FormatCell(sheet2.Cells["D" + ri], student.StudentNumber);
-                        obj.FormatCell(sheet2.Cells["E" + ri], merit.SchoolYear.ToString());
-                        obj.FormatCell(sheet2.Cells["F" + ri], merit.Semester.ToString());
-                        obj.FormatCell(sheet2.Cells["G" + ri], merit.OccurDate.ToShortDateString());
-                        obj.FormatCell(sheet2.Cells["H" + ri], merit.MeritA.HasValue ? merit.MeritA.Value.ToString() : "");
-                        obj.FormatCell(sheet2.Cells["I" + ri], merit.MeritB.HasValue ? merit.MeritB.Value.ToString() : "");
-                        obj.FormatCell(sheet2.Cells["J" + ri], merit.MeritC.HasValue ? merit.MeritC.Value.ToString() : "");
-                        obj.FormatCell(sheet2.Cells["K" + ri], merit.Reason);
-                        obj.FormatCell(sheet2.Cells["L" + ri], merit.RegisterDate.HasValue ? merit.RegisterDate.Value.ToShortDateString() : "");
+                    obj.FormatCell(sheet2.Cells["A" + ri], student.Class.Name);
+                    obj.FormatCell(sheet2.Cells["B" + ri], student.SeatNo.HasValue ? student.SeatNo.Value.ToString() : "");
+                    obj.FormatCell(sheet2.Cells["C" + ri], student.Name);
+                    obj.FormatCell(sheet2.Cells["D" + ri], student.StudentNumber);
+                    obj.FormatCell(sheet2.Cells["E" + ri], merit.SchoolYear.ToString());
+                    obj.FormatCell(sheet2.Cells["F" + ri], merit.Semester.ToString());
+                    obj.FormatCell(sheet2.Cells["G" + ri], merit.OccurDate.ToShortDateString());
+                    obj.FormatCell(sheet2.Cells["H" + ri], merit.MeritA.HasValue ? merit.MeritA.Value.ToString() : "");
+                    obj.FormatCell(sheet2.Cells["I" + ri], merit.MeritB.HasValue ? merit.MeritB.Value.ToString() : "");
+                    obj.FormatCell(sheet2.Cells["J" + ri], merit.MeritC.HasValue ? merit.MeritC.Value.ToString() : "");
+                    obj.FormatCell(sheet2.Cells["K" + ri], merit.Reason);
+                    obj.FormatCell(sheet2.Cells["L" + ri], merit.RegisterDate.HasValue ? merit.RegisterDate.Value.ToShortDateString() : "");
 
-                        ri++;
-                    }
+                    ri++;
                 }
+
             }
         }
 
@@ -312,18 +272,18 @@ namespace SpecialStudents
             }
             else if (cbxDemeritIsNull) //有懲戒記錄者,不列入清單
             {
-                if (DicByDemerit.ContainsKey(StudentID)) //如果有此學生,表示有懲戒記錄
+                if (_tb.DicByDemerit.ContainsKey(StudentID)) //如果有此學生,表示有懲戒記錄
                 {
                     return true;
                 }
             }
             else if (cbxIsDemeritClear) //有懲戒記錄,都已銷過者才列入清單
             {
-                if (DicByDemerit.ContainsKey(StudentID)) //如果有此學生,表示有懲戒記錄
+                if (_tb.DicByDemerit.ContainsKey(StudentID)) //如果有此學生,表示有懲戒記錄
                 {
                     bool CheckDemerit = false;
 
-                    foreach (DemeritRecord demeirt in DicByDemerit[StudentID])
+                    foreach (DemeritRecord demeirt in _tb.DicByDemerit[StudentID])
                     {
                         if (demeirt.Cleared != "是")
                         {

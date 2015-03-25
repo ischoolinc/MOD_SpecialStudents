@@ -31,7 +31,7 @@ namespace SpecialStudents
             };
 
             Catalog ribbon = RoleAclSource.Instance["班級"]["功能按鈕"];
-            ribbon.Add(new RibbonFeature("JHSchool.Class.Ribbon0060", "特殊學生表現"));
+            ribbon.Add(new RibbonFeature("JHSchool.Class.Ribbon0060", "特殊表現學生"));
 
         }
     }

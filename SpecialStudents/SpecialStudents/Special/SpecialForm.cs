@@ -115,11 +115,10 @@ namespace SpecialStudents
         private void btnPrint2_Click(object sender, EventArgs e)
         {
             NoAbsenceScClick NAsc = new NoAbsenceScClick();
-            NAsc.AttendanceIsNoabsence = AttendanceIsNoabsence;
 
             SetConfig _sc = DefSetup();
 
-            NAsc.print(_sc);
+            NAsc.print(_sc, AttendanceIsNoabsence);
         }
 
         //列印"獎勵特殊表現"名單
@@ -129,7 +128,7 @@ namespace SpecialStudents
 
             SetConfig _sc = DefSetup();
 
-            Msc.print(_sc, tbMeritA, tbMeritB, tbMeritC, cbxIgnoreDemerit, cbxDemeritIsNull, cbxIsDemeritClear);
+            Msc.print(_sc, cbxIgnoreDemerit, cbxDemeritIsNull, cbxIsDemeritClear);
         }
 
         //列印"懲戒特殊表現"名單
@@ -139,7 +138,7 @@ namespace SpecialStudents
 
             SetConfig _sc = DefSetup();
 
-            Dmsc.Print(_sc, tbDemeritA, tbDemeritB, tbDemeritC, cbxIsMeritAndDemerit);
+            Dmsc.Print(_sc, cbxIsMeritAndDemerit);
         }
 
         private SetConfig DefSetup()
@@ -155,8 +154,17 @@ namespace SpecialStudents
             _sc._Semester = intSemester1.Value;
             _sc._StudentList = _StudentRecordList;
             _sc._selectMode = _Select;
+
             _sc.StartDate = dateTimeInput1.Value;
             _sc.EndDate = dateTimeInput2.Value;
+
+            _sc.MeritCountA = tbMeritA.Value;
+            _sc.MeritCountB = tbMeritB.Value;
+            _sc.MeritCountC = tbMeritC.Value;
+
+            _sc.DemeritCountA = tbDemeritA.Value;
+            _sc.DemeritCountB = tbDemeritB.Value;
+            _sc.DemeritCountC = tbDemeritC.Value;
 
             return _sc;
         }

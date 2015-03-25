@@ -30,8 +30,36 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new DevComponents.DotNetBar.TabControl();
+            this.tabControlPanel4 = new DevComponents.DotNetBar.TabControlPanel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.btnPrint3 = new DevComponents.DotNetBar.ButtonX();
+            this.groupPanel8 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.cbxIsMeritAndDemerit = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.lbHelper1 = new DevComponents.DotNetBar.LabelX();
+            this.groupPanel6 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.tbDemeritC = new DevComponents.Editors.IntegerInput();
+            this.tbDemeritB = new DevComponents.Editors.IntegerInput();
+            this.tbDemeritA = new DevComponents.Editors.IntegerInput();
+            this.lbDemeritB = new DevComponents.DotNetBar.LabelX();
+            this.lbDemeritA = new DevComponents.DotNetBar.LabelX();
+            this.lbDemeritC = new DevComponents.DotNetBar.LabelX();
+            this.tabItem3 = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabControlPanel3 = new DevComponents.DotNetBar.TabControlPanel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.groupPanel4 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.cbxDemeritIsNull = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.cbxIgnoreDemerit = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.cbxIsDemeritClear = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.tbMeritC = new DevComponents.Editors.IntegerInput();
+            this.tbMeritB = new DevComponents.Editors.IntegerInput();
+            this.tbMeritA = new DevComponents.Editors.IntegerInput();
+            this.lbMeritB = new DevComponents.DotNetBar.LabelX();
+            this.lbMeritA = new DevComponents.DotNetBar.LabelX();
+            this.lbMeritC = new DevComponents.DotNetBar.LabelX();
+            this.btnPrint4 = new DevComponents.DotNetBar.ButtonX();
+            this.tabItem4 = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
-            this.btnExit = new DevComponents.DotNetBar.ButtonX();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupPanel10 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.listViewEx1 = new DevComponents.DotNetBar.Controls.ListViewEx();
@@ -47,35 +75,7 @@
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.tabItem2 = new DevComponents.DotNetBar.TabItem(this.components);
-            this.tabControlPanel3 = new DevComponents.DotNetBar.TabControlPanel();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
-            this.btnPrint4 = new DevComponents.DotNetBar.ButtonX();
-            this.groupPanel4 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.cbxDemeritIsNull = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.cbxIgnoreDemerit = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.cbxIsDemeritClear = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.tbMeritB = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.tbMeritA = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.tbMeritC = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.lbMeritB = new DevComponents.DotNetBar.LabelX();
-            this.lbMeritA = new DevComponents.DotNetBar.LabelX();
-            this.lbMeritC = new DevComponents.DotNetBar.LabelX();
-            this.tabItem4 = new DevComponents.DotNetBar.TabItem(this.components);
-            this.tabControlPanel4 = new DevComponents.DotNetBar.TabControlPanel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.btnPrint3 = new DevComponents.DotNetBar.ButtonX();
-            this.groupPanel8 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.cbxIsMeritAndDemerit = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.lbHelper1 = new DevComponents.DotNetBar.LabelX();
-            this.groupPanel6 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.tbDemeritA = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.tbDemeritB = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.tbDemeritC = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.lbDemeritB = new DevComponents.DotNetBar.LabelX();
-            this.lbDemeritA = new DevComponents.DotNetBar.LabelX();
-            this.lbDemeritC = new DevComponents.DotNetBar.LabelX();
-            this.tabItem3 = new DevComponents.DotNetBar.TabItem(this.components);
+            this.btnExit = new DevComponents.DotNetBar.ButtonX();
             this.groupPanel9 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.dateTimeInput2 = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
@@ -97,16 +97,22 @@
             this.tabControlPanel5 = new DevComponents.DotNetBar.TabControlPanel();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.tabControlPanel4.SuspendLayout();
+            this.groupPanel8.SuspendLayout();
+            this.groupPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbDemeritC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbDemeritB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbDemeritA)).BeginInit();
+            this.tabControlPanel3.SuspendLayout();
+            this.groupPanel4.SuspendLayout();
+            this.groupPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbMeritC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbMeritB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbMeritA)).BeginInit();
             this.tabControlPanel1.SuspendLayout();
             this.groupPanel10.SuspendLayout();
             this.tabControlPanel2.SuspendLayout();
             this.groupPanel1.SuspendLayout();
-            this.tabControlPanel3.SuspendLayout();
-            this.groupPanel4.SuspendLayout();
-            this.groupPanel3.SuspendLayout();
-            this.tabControlPanel4.SuspendLayout();
-            this.groupPanel8.SuspendLayout();
-            this.groupPanel6.SuspendLayout();
             this.groupPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput1)).BeginInit();
@@ -120,10 +126,10 @@
             // 
             this.tabControl1.BackColor = System.Drawing.Color.Transparent;
             this.tabControl1.CanReorderTabs = true;
-            this.tabControl1.Controls.Add(this.tabControlPanel4);
             this.tabControl1.Controls.Add(this.tabControlPanel3);
-            this.tabControl1.Controls.Add(this.tabControlPanel2);
+            this.tabControl1.Controls.Add(this.tabControlPanel4);
             this.tabControl1.Controls.Add(this.tabControlPanel1);
+            this.tabControl1.Controls.Add(this.tabControlPanel2);
             this.tabControl1.Location = new System.Drawing.Point(10, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedTabFont = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
@@ -137,6 +143,572 @@
             this.tabControl1.Tabs.Add(this.tabItem3);
             this.tabControl1.Tabs.Add(this.tabItem4);
             this.tabControl1.Text = "tabControl1";
+            // 
+            // tabControlPanel4
+            // 
+            this.tabControlPanel4.Controls.Add(this.linkLabel2);
+            this.tabControlPanel4.Controls.Add(this.btnPrint3);
+            this.tabControlPanel4.Controls.Add(this.groupPanel8);
+            this.tabControlPanel4.Controls.Add(this.groupPanel6);
+            this.tabControlPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel4.Location = new System.Drawing.Point(0, 28);
+            this.tabControlPanel4.Name = "tabControlPanel4";
+            this.tabControlPanel4.Padding = new System.Windows.Forms.Padding(1);
+            this.tabControlPanel4.Size = new System.Drawing.Size(409, 470);
+            this.tabControlPanel4.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
+            this.tabControlPanel4.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
+            this.tabControlPanel4.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabControlPanel4.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
+            this.tabControlPanel4.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+            this.tabControlPanel4.Style.GradientAngle = 90;
+            this.tabControlPanel4.TabIndex = 0;
+            this.tabControlPanel4.TabItem = this.tabItem3;
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel2.Location = new System.Drawing.Point(16, 440);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(73, 17);
+            this.linkLabel2.TabIndex = 2;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "功過換算表";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // btnPrint3
+            // 
+            this.btnPrint3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnPrint3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnPrint3.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrint3.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnPrint3.Location = new System.Drawing.Point(237, 434);
+            this.btnPrint3.Name = "btnPrint3";
+            this.btnPrint3.Size = new System.Drawing.Size(75, 23);
+            this.btnPrint3.TabIndex = 3;
+            this.btnPrint3.Text = "列印";
+            this.btnPrint3.Click += new System.EventHandler(this.btnPrint3_Click);
+            // 
+            // groupPanel8
+            // 
+            this.groupPanel8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupPanel8.BackColor = System.Drawing.Color.Transparent;
+            this.groupPanel8.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel8.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel8.Controls.Add(this.cbxIsMeritAndDemerit);
+            this.groupPanel8.Controls.Add(this.lbHelper1);
+            this.groupPanel8.Location = new System.Drawing.Point(19, 289);
+            this.groupPanel8.Name = "groupPanel8";
+            this.groupPanel8.Size = new System.Drawing.Size(373, 139);
+            // 
+            // 
+            // 
+            this.groupPanel8.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel8.Style.BackColorGradientAngle = 90;
+            this.groupPanel8.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel8.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel8.Style.BorderBottomWidth = 1;
+            this.groupPanel8.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel8.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel8.Style.BorderLeftWidth = 1;
+            this.groupPanel8.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel8.Style.BorderRightWidth = 1;
+            this.groupPanel8.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel8.Style.BorderTopWidth = 1;
+            this.groupPanel8.Style.Class = "";
+            this.groupPanel8.Style.CornerDiameter = 4;
+            this.groupPanel8.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel8.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel8.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupPanel8.StyleMouseDown.Class = "";
+            this.groupPanel8.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupPanel8.StyleMouseOver.Class = "";
+            this.groupPanel8.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel8.TabIndex = 1;
+            this.groupPanel8.Text = "說明";
+            // 
+            // cbxIsMeritAndDemerit
+            // 
+            this.cbxIsMeritAndDemerit.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbxIsMeritAndDemerit.AutoSize = true;
+            this.cbxIsMeritAndDemerit.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.cbxIsMeritAndDemerit.BackgroundStyle.Class = "";
+            this.cbxIsMeritAndDemerit.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.cbxIsMeritAndDemerit.Checked = true;
+            this.cbxIsMeritAndDemerit.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbxIsMeritAndDemerit.CheckValue = "Y";
+            this.cbxIsMeritAndDemerit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(66)))), ((int)(((byte)(133)))));
+            this.cbxIsMeritAndDemerit.Location = new System.Drawing.Point(58, 17);
+            this.cbxIsMeritAndDemerit.Name = "cbxIsMeritAndDemerit";
+            this.cbxIsMeritAndDemerit.Size = new System.Drawing.Size(107, 21);
+            this.cbxIsMeritAndDemerit.TabIndex = 0;
+            this.cbxIsMeritAndDemerit.Text = "進行功過相抵";
+            // 
+            // lbHelper1
+            // 
+            this.lbHelper1.AutoSize = true;
+            this.lbHelper1.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.lbHelper1.BackgroundStyle.Class = "";
+            this.lbHelper1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbHelper1.Font = new System.Drawing.Font("微軟正黑體", 9.75F);
+            this.lbHelper1.Location = new System.Drawing.Point(76, 40);
+            this.lbHelper1.Name = "lbHelper1";
+            this.lbHelper1.Size = new System.Drawing.Size(232, 56);
+            this.lbHelper1.TabIndex = 1;
+            this.lbHelper1.Text = "※本功能將產生累積資料以及明細資料<br/>\r\n※懲戒紀錄如果已銷過，不列入數字統計<br/>\r\n※您可由功過換算表調整功過換算比例";
+            this.lbHelper1.TextLineAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // groupPanel6
+            // 
+            this.groupPanel6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupPanel6.BackColor = System.Drawing.Color.Transparent;
+            this.groupPanel6.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel6.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel6.Controls.Add(this.tbDemeritC);
+            this.groupPanel6.Controls.Add(this.tbDemeritB);
+            this.groupPanel6.Controls.Add(this.tbDemeritA);
+            this.groupPanel6.Controls.Add(this.lbDemeritB);
+            this.groupPanel6.Controls.Add(this.lbDemeritA);
+            this.groupPanel6.Controls.Add(this.lbDemeritC);
+            this.groupPanel6.Location = new System.Drawing.Point(19, 209);
+            this.groupPanel6.Name = "groupPanel6";
+            this.groupPanel6.Size = new System.Drawing.Size(373, 74);
+            // 
+            // 
+            // 
+            this.groupPanel6.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel6.Style.BackColorGradientAngle = 90;
+            this.groupPanel6.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel6.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel6.Style.BorderBottomWidth = 1;
+            this.groupPanel6.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel6.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel6.Style.BorderLeftWidth = 1;
+            this.groupPanel6.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel6.Style.BorderRightWidth = 1;
+            this.groupPanel6.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel6.Style.BorderTopWidth = 1;
+            this.groupPanel6.Style.Class = "";
+            this.groupPanel6.Style.CornerDiameter = 4;
+            this.groupPanel6.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel6.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel6.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupPanel6.StyleMouseDown.Class = "";
+            this.groupPanel6.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupPanel6.StyleMouseOver.Class = "";
+            this.groupPanel6.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel6.TabIndex = 0;
+            this.groupPanel6.Text = "輸入懲戒次數";
+            // 
+            // tbDemeritC
+            // 
+            // 
+            // 
+            // 
+            this.tbDemeritC.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.tbDemeritC.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbDemeritC.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.tbDemeritC.Location = new System.Drawing.Point(290, 11);
+            this.tbDemeritC.MaxValue = 999;
+            this.tbDemeritC.MinValue = 0;
+            this.tbDemeritC.Name = "tbDemeritC";
+            this.tbDemeritC.ShowUpDown = true;
+            this.tbDemeritC.Size = new System.Drawing.Size(56, 25);
+            this.tbDemeritC.TabIndex = 11;
+            this.tbDemeritC.Value = 1;
+            // 
+            // tbDemeritB
+            // 
+            // 
+            // 
+            // 
+            this.tbDemeritB.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.tbDemeritB.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbDemeritB.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.tbDemeritB.Location = new System.Drawing.Point(178, 11);
+            this.tbDemeritB.MaxValue = 999;
+            this.tbDemeritB.MinValue = 0;
+            this.tbDemeritB.Name = "tbDemeritB";
+            this.tbDemeritB.ShowUpDown = true;
+            this.tbDemeritB.Size = new System.Drawing.Size(56, 25);
+            this.tbDemeritB.TabIndex = 10;
+            // 
+            // tbDemeritA
+            // 
+            // 
+            // 
+            // 
+            this.tbDemeritA.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.tbDemeritA.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbDemeritA.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.tbDemeritA.Location = new System.Drawing.Point(66, 11);
+            this.tbDemeritA.MaxValue = 999;
+            this.tbDemeritA.MinValue = 0;
+            this.tbDemeritA.Name = "tbDemeritA";
+            this.tbDemeritA.ShowUpDown = true;
+            this.tbDemeritA.Size = new System.Drawing.Size(56, 25);
+            this.tbDemeritA.TabIndex = 9;
+            // 
+            // lbDemeritB
+            // 
+            this.lbDemeritB.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.lbDemeritB.BackgroundStyle.Class = "";
+            this.lbDemeritB.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbDemeritB.Location = new System.Drawing.Point(133, 12);
+            this.lbDemeritB.Name = "lbDemeritB";
+            this.lbDemeritB.Size = new System.Drawing.Size(34, 23);
+            this.lbDemeritB.TabIndex = 2;
+            this.lbDemeritB.Text = "小過";
+            // 
+            // lbDemeritA
+            // 
+            this.lbDemeritA.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.lbDemeritA.BackgroundStyle.Class = "";
+            this.lbDemeritA.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbDemeritA.Location = new System.Drawing.Point(21, 12);
+            this.lbDemeritA.Name = "lbDemeritA";
+            this.lbDemeritA.Size = new System.Drawing.Size(34, 23);
+            this.lbDemeritA.TabIndex = 0;
+            this.lbDemeritA.Text = "大過";
+            // 
+            // lbDemeritC
+            // 
+            this.lbDemeritC.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.lbDemeritC.BackgroundStyle.Class = "";
+            this.lbDemeritC.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbDemeritC.Location = new System.Drawing.Point(245, 12);
+            this.lbDemeritC.Name = "lbDemeritC";
+            this.lbDemeritC.Size = new System.Drawing.Size(34, 23);
+            this.lbDemeritC.TabIndex = 4;
+            this.lbDemeritC.Text = "警告";
+            // 
+            // tabItem3
+            // 
+            this.tabItem3.AttachedControl = this.tabControlPanel3;
+            this.tabItem3.Name = "tabItem3";
+            this.tabItem3.Text = "獎勵特殊表現";
+            // 
+            // tabControlPanel3
+            // 
+            this.tabControlPanel3.Controls.Add(this.linkLabel3);
+            this.tabControlPanel3.Controls.Add(this.groupPanel4);
+            this.tabControlPanel3.Controls.Add(this.groupPanel3);
+            this.tabControlPanel3.Controls.Add(this.btnPrint4);
+            this.tabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel3.Location = new System.Drawing.Point(0, 28);
+            this.tabControlPanel3.Name = "tabControlPanel3";
+            this.tabControlPanel3.Padding = new System.Windows.Forms.Padding(1);
+            this.tabControlPanel3.Size = new System.Drawing.Size(409, 470);
+            this.tabControlPanel3.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
+            this.tabControlPanel3.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
+            this.tabControlPanel3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabControlPanel3.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
+            this.tabControlPanel3.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+            this.tabControlPanel3.Style.GradientAngle = 90;
+            this.tabControlPanel3.TabIndex = 0;
+            this.tabControlPanel3.TabItem = this.tabItem4;
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel3.Location = new System.Drawing.Point(16, 440);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(73, 17);
+            this.linkLabel3.TabIndex = 2;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "功過換算表";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            // 
+            // groupPanel4
+            // 
+            this.groupPanel4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupPanel4.BackColor = System.Drawing.Color.Transparent;
+            this.groupPanel4.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel4.Controls.Add(this.cbxDemeritIsNull);
+            this.groupPanel4.Controls.Add(this.cbxIgnoreDemerit);
+            this.groupPanel4.Controls.Add(this.cbxIsDemeritClear);
+            this.groupPanel4.Location = new System.Drawing.Point(19, 289);
+            this.groupPanel4.Name = "groupPanel4";
+            this.groupPanel4.Size = new System.Drawing.Size(373, 139);
+            // 
+            // 
+            // 
+            this.groupPanel4.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel4.Style.BackColorGradientAngle = 90;
+            this.groupPanel4.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel4.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel4.Style.BorderBottomWidth = 1;
+            this.groupPanel4.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel4.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel4.Style.BorderLeftWidth = 1;
+            this.groupPanel4.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel4.Style.BorderRightWidth = 1;
+            this.groupPanel4.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel4.Style.BorderTopWidth = 1;
+            this.groupPanel4.Style.Class = "";
+            this.groupPanel4.Style.CornerDiameter = 4;
+            this.groupPanel4.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel4.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel4.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupPanel4.StyleMouseDown.Class = "";
+            this.groupPanel4.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupPanel4.StyleMouseOver.Class = "";
+            this.groupPanel4.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel4.TabIndex = 1;
+            this.groupPanel4.Text = "其他條件";
+            // 
+            // cbxDemeritIsNull
+            // 
+            this.cbxDemeritIsNull.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbxDemeritIsNull.AutoSize = true;
+            this.cbxDemeritIsNull.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.cbxDemeritIsNull.BackgroundStyle.Class = "";
+            this.cbxDemeritIsNull.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.cbxDemeritIsNull.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton;
+            this.cbxDemeritIsNull.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbxDemeritIsNull.Location = new System.Drawing.Point(37, 46);
+            this.cbxDemeritIsNull.Name = "cbxDemeritIsNull";
+            this.cbxDemeritIsNull.Size = new System.Drawing.Size(204, 21);
+            this.cbxDemeritIsNull.TabIndex = 1;
+            this.cbxDemeritIsNull.Text = "有懲戒記錄的學生,不列入清單";
+            // 
+            // cbxIgnoreDemerit
+            // 
+            this.cbxIgnoreDemerit.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbxIgnoreDemerit.AutoSize = true;
+            this.cbxIgnoreDemerit.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.cbxIgnoreDemerit.BackgroundStyle.Class = "";
+            this.cbxIgnoreDemerit.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.cbxIgnoreDemerit.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton;
+            this.cbxIgnoreDemerit.Checked = true;
+            this.cbxIgnoreDemerit.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbxIgnoreDemerit.CheckValue = "Y";
+            this.cbxIgnoreDemerit.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbxIgnoreDemerit.Location = new System.Drawing.Point(37, 21);
+            this.cbxIgnoreDemerit.Name = "cbxIgnoreDemerit";
+            this.cbxIgnoreDemerit.Size = new System.Drawing.Size(223, 21);
+            this.cbxIgnoreDemerit.TabIndex = 0;
+            this.cbxIgnoreDemerit.Text = "忽略學生懲戒記錄進行統計(預設)";
+            // 
+            // cbxIsDemeritClear
+            // 
+            this.cbxIsDemeritClear.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbxIsDemeritClear.AutoSize = true;
+            this.cbxIsDemeritClear.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.cbxIsDemeritClear.BackgroundStyle.Class = "";
+            this.cbxIsDemeritClear.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.cbxIsDemeritClear.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton;
+            this.cbxIsDemeritClear.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cbxIsDemeritClear.Location = new System.Drawing.Point(37, 71);
+            this.cbxIsDemeritClear.Name = "cbxIsDemeritClear";
+            this.cbxIsDemeritClear.Size = new System.Drawing.Size(274, 21);
+            this.cbxIsDemeritClear.TabIndex = 2;
+            this.cbxIsDemeritClear.Text = "有懲戒記錄,但是都已進行銷過,才列入清單";
+            // 
+            // groupPanel3
+            // 
+            this.groupPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel3.Controls.Add(this.tbMeritC);
+            this.groupPanel3.Controls.Add(this.tbMeritB);
+            this.groupPanel3.Controls.Add(this.tbMeritA);
+            this.groupPanel3.Controls.Add(this.lbMeritB);
+            this.groupPanel3.Controls.Add(this.lbMeritA);
+            this.groupPanel3.Controls.Add(this.lbMeritC);
+            this.groupPanel3.Location = new System.Drawing.Point(19, 209);
+            this.groupPanel3.Name = "groupPanel3";
+            this.groupPanel3.Size = new System.Drawing.Size(373, 74);
+            // 
+            // 
+            // 
+            this.groupPanel3.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel3.Style.BackColorGradientAngle = 90;
+            this.groupPanel3.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel3.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderBottomWidth = 1;
+            this.groupPanel3.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel3.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderLeftWidth = 1;
+            this.groupPanel3.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderRightWidth = 1;
+            this.groupPanel3.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderTopWidth = 1;
+            this.groupPanel3.Style.Class = "";
+            this.groupPanel3.Style.CornerDiameter = 4;
+            this.groupPanel3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel3.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel3.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupPanel3.StyleMouseDown.Class = "";
+            this.groupPanel3.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupPanel3.StyleMouseOver.Class = "";
+            this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel3.TabIndex = 0;
+            this.groupPanel3.Text = "輸入獎勵次數";
+            // 
+            // tbMeritC
+            // 
+            // 
+            // 
+            // 
+            this.tbMeritC.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.tbMeritC.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbMeritC.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.tbMeritC.Location = new System.Drawing.Point(290, 11);
+            this.tbMeritC.MaxValue = 999;
+            this.tbMeritC.MinValue = 0;
+            this.tbMeritC.Name = "tbMeritC";
+            this.tbMeritC.ShowUpDown = true;
+            this.tbMeritC.Size = new System.Drawing.Size(56, 25);
+            this.tbMeritC.TabIndex = 8;
+            this.tbMeritC.Value = 1;
+            // 
+            // tbMeritB
+            // 
+            // 
+            // 
+            // 
+            this.tbMeritB.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.tbMeritB.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbMeritB.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.tbMeritB.Location = new System.Drawing.Point(178, 11);
+            this.tbMeritB.MaxValue = 999;
+            this.tbMeritB.MinValue = 0;
+            this.tbMeritB.Name = "tbMeritB";
+            this.tbMeritB.ShowUpDown = true;
+            this.tbMeritB.Size = new System.Drawing.Size(56, 25);
+            this.tbMeritB.TabIndex = 7;
+            // 
+            // tbMeritA
+            // 
+            // 
+            // 
+            // 
+            this.tbMeritA.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.tbMeritA.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbMeritA.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.tbMeritA.Location = new System.Drawing.Point(66, 11);
+            this.tbMeritA.MaxValue = 999;
+            this.tbMeritA.MinValue = 0;
+            this.tbMeritA.Name = "tbMeritA";
+            this.tbMeritA.ShowUpDown = true;
+            this.tbMeritA.Size = new System.Drawing.Size(56, 25);
+            this.tbMeritA.TabIndex = 6;
+            // 
+            // lbMeritB
+            // 
+            this.lbMeritB.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.lbMeritB.BackgroundStyle.Class = "";
+            this.lbMeritB.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbMeritB.Location = new System.Drawing.Point(133, 12);
+            this.lbMeritB.Name = "lbMeritB";
+            this.lbMeritB.Size = new System.Drawing.Size(34, 23);
+            this.lbMeritB.TabIndex = 2;
+            this.lbMeritB.Text = "小功";
+            // 
+            // lbMeritA
+            // 
+            this.lbMeritA.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.lbMeritA.BackgroundStyle.Class = "";
+            this.lbMeritA.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbMeritA.Location = new System.Drawing.Point(21, 12);
+            this.lbMeritA.Name = "lbMeritA";
+            this.lbMeritA.Size = new System.Drawing.Size(34, 23);
+            this.lbMeritA.TabIndex = 0;
+            this.lbMeritA.Text = "大功";
+            // 
+            // lbMeritC
+            // 
+            this.lbMeritC.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.lbMeritC.BackgroundStyle.Class = "";
+            this.lbMeritC.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbMeritC.Location = new System.Drawing.Point(245, 12);
+            this.lbMeritC.Name = "lbMeritC";
+            this.lbMeritC.Size = new System.Drawing.Size(34, 23);
+            this.lbMeritC.TabIndex = 4;
+            this.lbMeritC.Text = "嘉獎";
+            // 
+            // btnPrint4
+            // 
+            this.btnPrint4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnPrint4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnPrint4.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnPrint4.Location = new System.Drawing.Point(237, 434);
+            this.btnPrint4.Name = "btnPrint4";
+            this.btnPrint4.Size = new System.Drawing.Size(75, 23);
+            this.btnPrint4.TabIndex = 3;
+            this.btnPrint4.Text = "列印";
+            this.btnPrint4.Click += new System.EventHandler(this.btnPrint4_Click);
+            // 
+            // tabItem4
+            // 
+            this.tabItem4.AttachedControl = this.tabControlPanel4;
+            this.tabItem4.Name = "tabItem4";
+            this.tabItem4.Text = "懲戒特殊表現";
             // 
             // tabControlPanel1
             // 
@@ -157,18 +729,6 @@
             this.tabControlPanel1.Style.GradientAngle = 90;
             this.tabControlPanel1.TabIndex = 0;
             this.tabControlPanel1.TabItem = this.tabItem1;
-            // 
-            // btnExit
-            // 
-            this.btnExit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnExit.BackColor = System.Drawing.Color.Transparent;
-            this.btnExit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnExit.Location = new System.Drawing.Point(331, 474);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 1;
-            this.btnExit.Text = "離開";
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // linkLabel1
             // 
@@ -428,551 +988,17 @@
             this.tabItem2.Name = "tabItem2";
             this.tabItem2.Text = "全勤學生名單";
             // 
-            // tabControlPanel3
-            // 
-            this.tabControlPanel3.Controls.Add(this.linkLabel3);
-            this.tabControlPanel3.Controls.Add(this.groupPanel4);
-            this.tabControlPanel3.Controls.Add(this.groupPanel3);
-            this.tabControlPanel3.Controls.Add(this.btnPrint4);
-            this.tabControlPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel3.Location = new System.Drawing.Point(0, 28);
-            this.tabControlPanel3.Name = "tabControlPanel3";
-            this.tabControlPanel3.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel3.Size = new System.Drawing.Size(409, 470);
-            this.tabControlPanel3.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
-            this.tabControlPanel3.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
-            this.tabControlPanel3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel3.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
-            this.tabControlPanel3.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
-            | DevComponents.DotNetBar.eBorderSide.Bottom)));
-            this.tabControlPanel3.Style.GradientAngle = 90;
-            this.tabControlPanel3.TabIndex = 0;
-            this.tabControlPanel3.TabItem = this.tabItem4;
-            // 
-            // linkLabel3
-            // 
-            this.linkLabel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel3.Location = new System.Drawing.Point(16, 440);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(73, 17);
-            this.linkLabel3.TabIndex = 2;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "功過換算表";
-            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
-            // 
-            // btnPrint4
-            // 
-            this.btnPrint4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnPrint4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrint4.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnPrint4.Location = new System.Drawing.Point(237, 434);
-            this.btnPrint4.Name = "btnPrint4";
-            this.btnPrint4.Size = new System.Drawing.Size(75, 23);
-            this.btnPrint4.TabIndex = 3;
-            this.btnPrint4.Text = "列印";
-            this.btnPrint4.Click += new System.EventHandler(this.btnPrint4_Click);
-            // 
-            // groupPanel4
-            // 
-            this.groupPanel4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupPanel4.BackColor = System.Drawing.Color.Transparent;
-            this.groupPanel4.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel4.Controls.Add(this.cbxDemeritIsNull);
-            this.groupPanel4.Controls.Add(this.cbxIgnoreDemerit);
-            this.groupPanel4.Controls.Add(this.cbxIsDemeritClear);
-            this.groupPanel4.Location = new System.Drawing.Point(19, 289);
-            this.groupPanel4.Name = "groupPanel4";
-            this.groupPanel4.Size = new System.Drawing.Size(373, 139);
-            // 
-            // 
-            // 
-            this.groupPanel4.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel4.Style.BackColorGradientAngle = 90;
-            this.groupPanel4.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel4.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel4.Style.BorderBottomWidth = 1;
-            this.groupPanel4.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel4.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel4.Style.BorderLeftWidth = 1;
-            this.groupPanel4.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel4.Style.BorderRightWidth = 1;
-            this.groupPanel4.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel4.Style.BorderTopWidth = 1;
-            this.groupPanel4.Style.Class = "";
-            this.groupPanel4.Style.CornerDiameter = 4;
-            this.groupPanel4.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel4.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel4.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            // 
-            // 
-            // 
-            this.groupPanel4.StyleMouseDown.Class = "";
-            this.groupPanel4.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.groupPanel4.StyleMouseOver.Class = "";
-            this.groupPanel4.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel4.TabIndex = 1;
-            this.groupPanel4.Text = "其他條件";
-            // 
-            // cbxDemeritIsNull
-            // 
-            this.cbxDemeritIsNull.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cbxDemeritIsNull.AutoSize = true;
-            this.cbxDemeritIsNull.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.cbxDemeritIsNull.BackgroundStyle.Class = "";
-            this.cbxDemeritIsNull.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.cbxDemeritIsNull.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton;
-            this.cbxDemeritIsNull.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.cbxDemeritIsNull.Location = new System.Drawing.Point(37, 46);
-            this.cbxDemeritIsNull.Name = "cbxDemeritIsNull";
-            this.cbxDemeritIsNull.Size = new System.Drawing.Size(204, 21);
-            this.cbxDemeritIsNull.TabIndex = 1;
-            this.cbxDemeritIsNull.Text = "有懲戒記錄的學生,不列入清單";
-            // 
-            // cbxIgnoreDemerit
-            // 
-            this.cbxIgnoreDemerit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cbxIgnoreDemerit.AutoSize = true;
-            this.cbxIgnoreDemerit.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.cbxIgnoreDemerit.BackgroundStyle.Class = "";
-            this.cbxIgnoreDemerit.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.cbxIgnoreDemerit.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton;
-            this.cbxIgnoreDemerit.Checked = true;
-            this.cbxIgnoreDemerit.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbxIgnoreDemerit.CheckValue = "Y";
-            this.cbxIgnoreDemerit.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.cbxIgnoreDemerit.Location = new System.Drawing.Point(37, 21);
-            this.cbxIgnoreDemerit.Name = "cbxIgnoreDemerit";
-            this.cbxIgnoreDemerit.Size = new System.Drawing.Size(223, 21);
-            this.cbxIgnoreDemerit.TabIndex = 0;
-            this.cbxIgnoreDemerit.Text = "忽略學生懲戒記錄進行統計(預設)";
-            // 
-            // cbxIsDemeritClear
-            // 
-            this.cbxIsDemeritClear.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cbxIsDemeritClear.AutoSize = true;
-            this.cbxIsDemeritClear.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.cbxIsDemeritClear.BackgroundStyle.Class = "";
-            this.cbxIsDemeritClear.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.cbxIsDemeritClear.CheckBoxStyle = DevComponents.DotNetBar.eCheckBoxStyle.RadioButton;
-            this.cbxIsDemeritClear.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.cbxIsDemeritClear.Location = new System.Drawing.Point(37, 71);
-            this.cbxIsDemeritClear.Name = "cbxIsDemeritClear";
-            this.cbxIsDemeritClear.Size = new System.Drawing.Size(274, 21);
-            this.cbxIsDemeritClear.TabIndex = 2;
-            this.cbxIsDemeritClear.Text = "有懲戒記錄,但是都已進行銷過,才列入清單";
-            // 
-            // groupPanel3
-            // 
-            this.groupPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupPanel3.BackColor = System.Drawing.Color.Transparent;
-            this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel3.Controls.Add(this.tbMeritB);
-            this.groupPanel3.Controls.Add(this.tbMeritA);
-            this.groupPanel3.Controls.Add(this.tbMeritC);
-            this.groupPanel3.Controls.Add(this.lbMeritB);
-            this.groupPanel3.Controls.Add(this.lbMeritA);
-            this.groupPanel3.Controls.Add(this.lbMeritC);
-            this.groupPanel3.Location = new System.Drawing.Point(19, 209);
-            this.groupPanel3.Name = "groupPanel3";
-            this.groupPanel3.Size = new System.Drawing.Size(373, 74);
-            // 
-            // 
-            // 
-            this.groupPanel3.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel3.Style.BackColorGradientAngle = 90;
-            this.groupPanel3.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel3.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel3.Style.BorderBottomWidth = 1;
-            this.groupPanel3.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel3.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel3.Style.BorderLeftWidth = 1;
-            this.groupPanel3.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel3.Style.BorderRightWidth = 1;
-            this.groupPanel3.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel3.Style.BorderTopWidth = 1;
-            this.groupPanel3.Style.Class = "";
-            this.groupPanel3.Style.CornerDiameter = 4;
-            this.groupPanel3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel3.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel3.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            // 
-            // 
-            // 
-            this.groupPanel3.StyleMouseDown.Class = "";
-            this.groupPanel3.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.groupPanel3.StyleMouseOver.Class = "";
-            this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel3.TabIndex = 0;
-            this.groupPanel3.Text = "輸入獎勵次數";
-            // 
-            // tbMeritB
-            // 
-            // 
-            // 
-            // 
-            this.tbMeritB.Border.Class = "TextBoxBorder";
-            this.tbMeritB.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.tbMeritB.Location = new System.Drawing.Point(188, 10);
-            this.tbMeritB.Name = "tbMeritB";
-            this.tbMeritB.Size = new System.Drawing.Size(37, 25);
-            this.tbMeritB.TabIndex = 3;
-            this.tbMeritB.Text = "0";
-            // 
-            // tbMeritA
-            // 
-            // 
-            // 
-            // 
-            this.tbMeritA.Border.Class = "TextBoxBorder";
-            this.tbMeritA.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.tbMeritA.Location = new System.Drawing.Point(93, 10);
-            this.tbMeritA.Name = "tbMeritA";
-            this.tbMeritA.Size = new System.Drawing.Size(37, 25);
-            this.tbMeritA.TabIndex = 1;
-            this.tbMeritA.Text = "0";
-            // 
-            // tbMeritC
-            // 
-            // 
-            // 
-            // 
-            this.tbMeritC.Border.Class = "TextBoxBorder";
-            this.tbMeritC.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.tbMeritC.Location = new System.Drawing.Point(283, 10);
-            this.tbMeritC.Name = "tbMeritC";
-            this.tbMeritC.Size = new System.Drawing.Size(37, 25);
-            this.tbMeritC.TabIndex = 5;
-            this.tbMeritC.Text = "0";
-            // 
-            // lbMeritB
-            // 
-            this.lbMeritB.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.lbMeritB.BackgroundStyle.Class = "";
-            this.lbMeritB.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbMeritB.Location = new System.Drawing.Point(142, 11);
-            this.lbMeritB.Name = "lbMeritB";
-            this.lbMeritB.Size = new System.Drawing.Size(34, 23);
-            this.lbMeritB.TabIndex = 2;
-            this.lbMeritB.Text = "小功";
-            // 
-            // lbMeritA
-            // 
-            this.lbMeritA.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.lbMeritA.BackgroundStyle.Class = "";
-            this.lbMeritA.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbMeritA.Location = new System.Drawing.Point(47, 11);
-            this.lbMeritA.Name = "lbMeritA";
-            this.lbMeritA.Size = new System.Drawing.Size(34, 23);
-            this.lbMeritA.TabIndex = 0;
-            this.lbMeritA.Text = "大功";
-            // 
-            // lbMeritC
-            // 
-            this.lbMeritC.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.lbMeritC.BackgroundStyle.Class = "";
-            this.lbMeritC.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbMeritC.Location = new System.Drawing.Point(237, 11);
-            this.lbMeritC.Name = "lbMeritC";
-            this.lbMeritC.Size = new System.Drawing.Size(34, 23);
-            this.lbMeritC.TabIndex = 4;
-            this.lbMeritC.Text = "嘉獎";
-            // 
-            // tabItem4
-            // 
-            this.tabItem4.AttachedControl = this.tabControlPanel4;
-            this.tabItem4.Name = "tabItem4";
-            this.tabItem4.Text = "懲戒特殊表現";
-            // 
-            // tabControlPanel4
-            // 
-            this.tabControlPanel4.Controls.Add(this.linkLabel2);
-            this.tabControlPanel4.Controls.Add(this.btnPrint3);
-            this.tabControlPanel4.Controls.Add(this.groupPanel8);
-            this.tabControlPanel4.Controls.Add(this.groupPanel6);
-            this.tabControlPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel4.Location = new System.Drawing.Point(0, 28);
-            this.tabControlPanel4.Name = "tabControlPanel4";
-            this.tabControlPanel4.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel4.Size = new System.Drawing.Size(409, 470);
-            this.tabControlPanel4.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
-            this.tabControlPanel4.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
-            this.tabControlPanel4.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel4.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
-            this.tabControlPanel4.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
-            | DevComponents.DotNetBar.eBorderSide.Bottom)));
-            this.tabControlPanel4.Style.GradientAngle = 90;
-            this.tabControlPanel4.TabIndex = 0;
-            this.tabControlPanel4.TabItem = this.tabItem3;
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel2.Location = new System.Drawing.Point(16, 440);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(73, 17);
-            this.linkLabel2.TabIndex = 2;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "功過換算表";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
-            // 
-            // btnPrint3
-            // 
-            this.btnPrint3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnPrint3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrint3.BackColor = System.Drawing.Color.Transparent;
-            this.btnPrint3.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnPrint3.Location = new System.Drawing.Point(237, 434);
-            this.btnPrint3.Name = "btnPrint3";
-            this.btnPrint3.Size = new System.Drawing.Size(75, 23);
-            this.btnPrint3.TabIndex = 3;
-            this.btnPrint3.Text = "列印";
-            this.btnPrint3.Click += new System.EventHandler(this.btnPrint3_Click);
-            // 
-            // groupPanel8
-            // 
-            this.groupPanel8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupPanel8.BackColor = System.Drawing.Color.Transparent;
-            this.groupPanel8.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel8.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel8.Controls.Add(this.cbxIsMeritAndDemerit);
-            this.groupPanel8.Controls.Add(this.lbHelper1);
-            this.groupPanel8.Location = new System.Drawing.Point(19, 289);
-            this.groupPanel8.Name = "groupPanel8";
-            this.groupPanel8.Size = new System.Drawing.Size(373, 139);
-            // 
-            // 
-            // 
-            this.groupPanel8.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel8.Style.BackColorGradientAngle = 90;
-            this.groupPanel8.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel8.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel8.Style.BorderBottomWidth = 1;
-            this.groupPanel8.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel8.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel8.Style.BorderLeftWidth = 1;
-            this.groupPanel8.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel8.Style.BorderRightWidth = 1;
-            this.groupPanel8.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel8.Style.BorderTopWidth = 1;
-            this.groupPanel8.Style.Class = "";
-            this.groupPanel8.Style.CornerDiameter = 4;
-            this.groupPanel8.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel8.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel8.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            // 
-            // 
-            // 
-            this.groupPanel8.StyleMouseDown.Class = "";
-            this.groupPanel8.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.groupPanel8.StyleMouseOver.Class = "";
-            this.groupPanel8.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel8.TabIndex = 1;
-            this.groupPanel8.Text = "說明";
-            // 
-            // cbxIsMeritAndDemerit
-            // 
-            this.cbxIsMeritAndDemerit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cbxIsMeritAndDemerit.AutoSize = true;
-            this.cbxIsMeritAndDemerit.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.cbxIsMeritAndDemerit.BackgroundStyle.Class = "";
-            this.cbxIsMeritAndDemerit.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.cbxIsMeritAndDemerit.Checked = true;
-            this.cbxIsMeritAndDemerit.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbxIsMeritAndDemerit.CheckValue = "Y";
-            this.cbxIsMeritAndDemerit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(66)))), ((int)(((byte)(133)))));
-            this.cbxIsMeritAndDemerit.Location = new System.Drawing.Point(58, 17);
-            this.cbxIsMeritAndDemerit.Name = "cbxIsMeritAndDemerit";
-            this.cbxIsMeritAndDemerit.Size = new System.Drawing.Size(107, 21);
-            this.cbxIsMeritAndDemerit.TabIndex = 0;
-            this.cbxIsMeritAndDemerit.Text = "進行功過相抵";
-            // 
-            // lbHelper1
-            // 
-            this.lbHelper1.AutoSize = true;
-            this.lbHelper1.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.lbHelper1.BackgroundStyle.Class = "";
-            this.lbHelper1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbHelper1.Font = new System.Drawing.Font("微軟正黑體", 9.75F);
-            this.lbHelper1.Location = new System.Drawing.Point(76, 40);
-            this.lbHelper1.Name = "lbHelper1";
-            this.lbHelper1.Size = new System.Drawing.Size(232, 56);
-            this.lbHelper1.TabIndex = 1;
-            this.lbHelper1.Text = "※本功能將產生累積資料以及明細資料<br/>\r\n※懲戒紀錄如果已銷過，不列入數字統計<br/>\r\n※您可由功過換算表調整功過換算比例";
-            this.lbHelper1.TextLineAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // groupPanel6
-            // 
-            this.groupPanel6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupPanel6.BackColor = System.Drawing.Color.Transparent;
-            this.groupPanel6.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel6.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel6.Controls.Add(this.tbDemeritA);
-            this.groupPanel6.Controls.Add(this.tbDemeritB);
-            this.groupPanel6.Controls.Add(this.tbDemeritC);
-            this.groupPanel6.Controls.Add(this.lbDemeritB);
-            this.groupPanel6.Controls.Add(this.lbDemeritA);
-            this.groupPanel6.Controls.Add(this.lbDemeritC);
-            this.groupPanel6.Location = new System.Drawing.Point(19, 209);
-            this.groupPanel6.Name = "groupPanel6";
-            this.groupPanel6.Size = new System.Drawing.Size(373, 74);
-            // 
-            // 
-            // 
-            this.groupPanel6.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel6.Style.BackColorGradientAngle = 90;
-            this.groupPanel6.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel6.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel6.Style.BorderBottomWidth = 1;
-            this.groupPanel6.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel6.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel6.Style.BorderLeftWidth = 1;
-            this.groupPanel6.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel6.Style.BorderRightWidth = 1;
-            this.groupPanel6.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel6.Style.BorderTopWidth = 1;
-            this.groupPanel6.Style.Class = "";
-            this.groupPanel6.Style.CornerDiameter = 4;
-            this.groupPanel6.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel6.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel6.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            // 
-            // 
-            // 
-            this.groupPanel6.StyleMouseDown.Class = "";
-            this.groupPanel6.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.groupPanel6.StyleMouseOver.Class = "";
-            this.groupPanel6.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel6.TabIndex = 0;
-            this.groupPanel6.Text = "輸入懲戒次數";
-            // 
-            // tbDemeritA
-            // 
-            // 
-            // 
-            // 
-            this.tbDemeritA.Border.Class = "TextBoxBorder";
-            this.tbDemeritA.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.tbDemeritA.Location = new System.Drawing.Point(93, 10);
-            this.tbDemeritA.Name = "tbDemeritA";
-            this.tbDemeritA.Size = new System.Drawing.Size(37, 25);
-            this.tbDemeritA.TabIndex = 1;
-            this.tbDemeritA.Text = "0";
-            // 
-            // tbDemeritB
-            // 
-            // 
-            // 
-            // 
-            this.tbDemeritB.Border.Class = "TextBoxBorder";
-            this.tbDemeritB.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.tbDemeritB.Location = new System.Drawing.Point(188, 10);
-            this.tbDemeritB.Name = "tbDemeritB";
-            this.tbDemeritB.Size = new System.Drawing.Size(37, 25);
-            this.tbDemeritB.TabIndex = 3;
-            this.tbDemeritB.Text = "0";
-            // 
-            // tbDemeritC
-            // 
-            // 
-            // 
-            // 
-            this.tbDemeritC.Border.Class = "TextBoxBorder";
-            this.tbDemeritC.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.tbDemeritC.Location = new System.Drawing.Point(283, 10);
-            this.tbDemeritC.Name = "tbDemeritC";
-            this.tbDemeritC.Size = new System.Drawing.Size(37, 25);
-            this.tbDemeritC.TabIndex = 5;
-            this.tbDemeritC.Text = "0";
-            // 
-            // lbDemeritB
-            // 
-            this.lbDemeritB.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.lbDemeritB.BackgroundStyle.Class = "";
-            this.lbDemeritB.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbDemeritB.Location = new System.Drawing.Point(142, 11);
-            this.lbDemeritB.Name = "lbDemeritB";
-            this.lbDemeritB.Size = new System.Drawing.Size(34, 23);
-            this.lbDemeritB.TabIndex = 2;
-            this.lbDemeritB.Text = "小過";
-            // 
-            // lbDemeritA
-            // 
-            this.lbDemeritA.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.lbDemeritA.BackgroundStyle.Class = "";
-            this.lbDemeritA.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbDemeritA.Location = new System.Drawing.Point(47, 11);
-            this.lbDemeritA.Name = "lbDemeritA";
-            this.lbDemeritA.Size = new System.Drawing.Size(34, 23);
-            this.lbDemeritA.TabIndex = 0;
-            this.lbDemeritA.Text = "大過";
-            // 
-            // lbDemeritC
-            // 
-            this.lbDemeritC.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.lbDemeritC.BackgroundStyle.Class = "";
-            this.lbDemeritC.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbDemeritC.Location = new System.Drawing.Point(237, 11);
-            this.lbDemeritC.Name = "lbDemeritC";
-            this.lbDemeritC.Size = new System.Drawing.Size(34, 23);
-            this.lbDemeritC.TabIndex = 4;
-            this.lbDemeritC.Text = "警告";
-            // 
-            // tabItem3
-            // 
-            this.tabItem3.AttachedControl = this.tabControlPanel3;
-            this.tabItem3.Name = "tabItem3";
-            this.tabItem3.Text = "獎勵特殊表現";
+            // btnExit
+            // 
+            this.btnExit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnExit.Location = new System.Drawing.Point(331, 474);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 1;
+            this.btnExit.Text = "離開";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // groupPanel9
             // 
@@ -1401,10 +1427,26 @@
             this.Controls.Add(this.tabControl1);
             this.DoubleBuffered = true;
             this.Name = "SpecialForm";
-            this.Text = "查詢學生特殊表現名單";
+            this.Text = "特殊表現學生";
             this.Load += new System.EventHandler(this.SpecialForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.tabControlPanel4.ResumeLayout(false);
+            this.tabControlPanel4.PerformLayout();
+            this.groupPanel8.ResumeLayout(false);
+            this.groupPanel8.PerformLayout();
+            this.groupPanel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tbDemeritC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbDemeritB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbDemeritA)).EndInit();
+            this.tabControlPanel3.ResumeLayout(false);
+            this.tabControlPanel3.PerformLayout();
+            this.groupPanel4.ResumeLayout(false);
+            this.groupPanel4.PerformLayout();
+            this.groupPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tbMeritC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbMeritB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbMeritA)).EndInit();
             this.tabControlPanel1.ResumeLayout(false);
             this.tabControlPanel1.PerformLayout();
             this.groupPanel10.ResumeLayout(false);
@@ -1413,16 +1455,6 @@
             this.tabControlPanel2.PerformLayout();
             this.groupPanel1.ResumeLayout(false);
             this.groupPanel1.PerformLayout();
-            this.tabControlPanel3.ResumeLayout(false);
-            this.tabControlPanel3.PerformLayout();
-            this.groupPanel4.ResumeLayout(false);
-            this.groupPanel4.PerformLayout();
-            this.groupPanel3.ResumeLayout(false);
-            this.tabControlPanel4.ResumeLayout(false);
-            this.tabControlPanel4.PerformLayout();
-            this.groupPanel8.ResumeLayout(false);
-            this.groupPanel8.PerformLayout();
-            this.groupPanel6.ResumeLayout(false);
             this.groupPanel9.ResumeLayout(false);
             this.groupPanel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput2)).EndInit();
@@ -1460,10 +1492,7 @@
         private DevComponents.DotNetBar.Controls.CheckBoxX cbxIgnoreDemerit;
         private DevComponents.DotNetBar.LabelX lbMeritB;
         private DevComponents.DotNetBar.LabelX lbMeritA;
-        private DevComponents.DotNetBar.Controls.TextBoxX tbMeritC;
         private DevComponents.DotNetBar.LabelX lbMeritC;
-        private DevComponents.DotNetBar.Controls.TextBoxX tbMeritB;
-        private DevComponents.DotNetBar.Controls.TextBoxX tbMeritA;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel4;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel3;
         private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxX1;
@@ -1478,10 +1507,7 @@
         private DevComponents.DotNetBar.Controls.CheckBoxX cbxIsMeritAndDemerit;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel6;
         private DevComponents.DotNetBar.LabelX lbDemeritB;
-        private DevComponents.DotNetBar.Controls.TextBoxX tbDemeritA;
         private DevComponents.DotNetBar.LabelX lbDemeritA;
-        private DevComponents.DotNetBar.Controls.TextBoxX tbDemeritB;
-        private DevComponents.DotNetBar.Controls.TextBoxX tbDemeritC;
         private DevComponents.DotNetBar.LabelX lbDemeritC;
         private DevComponents.DotNetBar.ButtonX btnPrint3;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel10;
@@ -1503,6 +1529,12 @@
         private DevComponents.Editors.DateTimeAdv.DateTimeInput dateTimeInput1;
         private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxX4;
         private DevComponents.DotNetBar.LabelX labelX3;
+        private DevComponents.Editors.IntegerInput tbMeritC;
+        private DevComponents.Editors.IntegerInput tbMeritB;
+        private DevComponents.Editors.IntegerInput tbMeritA;
+        private DevComponents.Editors.IntegerInput tbDemeritC;
+        private DevComponents.Editors.IntegerInput tbDemeritB;
+        private DevComponents.Editors.IntegerInput tbDemeritA;
 
     }
 }

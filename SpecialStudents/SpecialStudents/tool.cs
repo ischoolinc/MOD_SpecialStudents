@@ -14,6 +14,7 @@ namespace SpecialStudents
         /// </summary>
         static public string AttConfigName = "特殊學生表現_缺曠累積名單";
 
+        static public FISCA.Data.QueryHelper _Q = new FISCA.Data.QueryHelper();
 
         static public Cell UserStyle(Cell cell)
         {

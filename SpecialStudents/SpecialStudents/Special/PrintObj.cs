@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using DevComponents.DotNetBar.Controls;
 using System.Drawing;
+using System.Data;
 
 namespace SpecialStudents
 {
@@ -22,17 +23,19 @@ namespace SpecialStudents
         public void PrintNow(Workbook book, string Name)
         {
             _book = book;
-            foreach (Worksheet sheet in _book.Worksheets)
-            {
-                sheet.AutoFitColumns();
-            }
+
+            //foreach (Worksheet sheet in _book.Worksheets)
+            //{
+            //    sheet.AutoFitRows();
+            //    sheet.AutoFitColumns();
+            //}
 
             string path = Path.Combine(Application.StartupPath, "Reports");
 
             //如果目錄不存在則建立。
             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
 
-            path = Path.Combine(path, Name + ".xls");
+            path = Path.Combine(path, Name + ".xlsx");
             int i = 1;
             while (true)
             {
@@ -52,7 +55,7 @@ namespace SpecialStudents
                 try
                 {
                     FileInfo file = new FileInfo(path);
-                    string nameTempalte = file.FullName.Replace(file.Extension, "") + "{0}.xls";
+                    string nameTempalte = file.FullName.Replace(file.Extension, "") + "{0}.xlsx";
                     int count = 1;
                     string fileName = string.Format(nameTempalte, count);
                     while (File.Exists(fileName))
@@ -115,33 +118,6 @@ namespace SpecialStudents
         }
 
         /// <summary>
-        /// 傳入3個元件檢查是否輸入為數字(true為錯誤),
-        /// </summary>
-        public bool CheckTextBox(string a1, string b1, string c1)
-        {
-            int TextString;
-
-            //不是數字 and 不是空字串
-            if (!int.TryParse(a1, out TextString))
-            {
-                return true;
-            }
-
-            if (!int.TryParse(b1, out TextString))
-            {
-                return true;
-            }
-
-            if (!int.TryParse(c1, out TextString))
-            {
-                return true;
-            }
-
-            return false;
-
-        }
-
-        /// <summary>
         /// 格式化Cell
         /// </summary>
         public void FormatCell(Cell cell, string value)
@@ -153,7 +129,7 @@ namespace SpecialStudents
             style.Borders.SetStyle(CellBorderType.Hair);
             style.Borders.SetColor(Color.Black);
             style.Borders.DiagonalStyle = CellBorderType.None;
-            style.HorizontalAlignment = TextAlignmentType.Center;
+            style.HorizontalAlignment = TextAlignmentType.Left;
 
             cell.SetStyle(style);
         }
@@ -161,34 +137,26 @@ namespace SpecialStudents
         //取得選取班級之學生
         public List<K12.Data.StudentRecord> GetStudentList()
         {
-            List<K12.Data.StudentRecord> StudentRecordList = new List<K12.Data.StudentRecord>();
+            List<string> StudentIDList = new List<string>();
 
             List<string> ClassIDList = K12.Presentation.NLDPanels.Class.SelectedSource;
 
-            foreach (K12.Data.StudentRecord student in K12.Data.Student.SelectAll())
+            DataTable dt = tool._Q.Select(string.Format("select student.id,student.ref_class_id from student where ref_class_id is not null and ref_class_id in ('{0}') and status in ('1','2')", string.Join("','", ClassIDList)));
+
+            foreach (DataRow row in dt.Rows)
             {
-                //判斷學生狀態
-                if (student.Status != K12.Data.StudentRecord.StudentStatus.一般)
-                    continue;
-
-                if (student.Class == null)
-                    continue;
-
                 //是選取班級之學生
-                string classid = student.Class != null ? student.Class.ID : "";
-                if (ClassIDList.Contains(classid))
+
+                if (!StudentIDList.Contains("" + row["id"]))
                 {
-                    if (!StudentRecordList.Contains(student))
-                    {
-                        StudentRecordList.Add(student);
-                    }
+                    StudentIDList.Add("" + row["id"]);
                 }
             }
 
             //排序
             //StudentRecordList.Sort(new SortClass().SortStudent);
             //StudentRecordList = SortClassIndex.JHSchoolData_JHStudentRecord(StudentRecordList);
-            return StudentRecordList;
+            return K12.Data.Student.SelectByIDs(StudentIDList);
         }
     }
 }

@@ -113,15 +113,27 @@ namespace SpecialStudents
             sheet.Name = "缺曠累計名單";
 
             //將格子合併
-            sheet.Cells.Merge(0, 0, 1, 5 + SelectAbsenceList.Count);
-            sheet.Cells[0, 0].PutValue(School.ChineseName + "　缺曠累計名單");
+            //sheet.Cells.Merge(0, 0, 1, 5 + SelectAbsenceList.Count);
 
-            Style s = sheet.Cells[0, 0].GetStyle();
-            s.HorizontalAlignment = TextAlignmentType.Center;
-            sheet.Cells[0, 0].SetStyle(s);
+            string A1Name = School.ChineseName + "　缺曠累計名單";
+            if (_sc._selectMode == SelectMode.依學期)
+            {
+                A1Name += "　(" + _sc._SchoolYear.ToString() + " / " + _sc._Semester.ToString() + ")";
+            }
+            else if (_sc._selectMode == SelectMode.依日期)
+            {
+                A1Name += "　(" + _sc.StartDate.ToShortDateString() + " ~ " + _sc.EndDate.ToShortDateString() + ")";
+            }
+            else
+            {
+                A1Name += "(所有學期)";
+            }
 
-            sheet.Cells[1, 0].PutValue("班級");
-            sheet.Cells[1, 1].PutValue("座號");
+            //sheet.Cells[0, 0].PutValue(A1Name);
+            obj.FormatCell(sheet.Cells[0, 0], A1Name);
+
+            obj.FormatCell(sheet.Cells[1, 0], "班級");
+            obj.FormatCell(sheet.Cells[1, 1], "座號");
             sheet.Cells[1, 2].PutValue("姓名");
             sheet.Cells[1, 3].PutValue("學號");
 

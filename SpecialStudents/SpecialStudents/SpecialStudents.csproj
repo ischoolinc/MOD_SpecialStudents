@@ -118,6 +118,8 @@
     <Compile Include="Special\SpecialForm.designer.cs">
       <DependentUpon>SpecialForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Special\StudentAbsence.cs" />
+    <Compile Include="Special\TotalObj.cs" />
     <Compile Include="StudentSortObj.cs" />
     <Compile Include="tool.cs" />
   </ItemGroup>
