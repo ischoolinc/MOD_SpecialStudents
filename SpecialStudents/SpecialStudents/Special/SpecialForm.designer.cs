@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new DevComponents.DotNetBar.TabControl();
             this.tabControlPanel4 = new DevComponents.DotNetBar.TabControlPanel();
+            this.btnExit4 = new DevComponents.DotNetBar.ButtonX();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.btnPrint3 = new DevComponents.DotNetBar.ButtonX();
             this.groupPanel8 = new DevComponents.DotNetBar.Controls.GroupPanel();
@@ -45,6 +46,7 @@
             this.lbDemeritC = new DevComponents.DotNetBar.LabelX();
             this.tabItem3 = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel3 = new DevComponents.DotNetBar.TabControlPanel();
+            this.btnExit3 = new DevComponents.DotNetBar.ButtonX();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.groupPanel4 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.cbxDemeritIsNull = new DevComponents.DotNetBar.Controls.CheckBoxX();
@@ -59,7 +61,15 @@
             this.lbMeritC = new DevComponents.DotNetBar.LabelX();
             this.btnPrint4 = new DevComponents.DotNetBar.ButtonX();
             this.tabItem4 = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
+            this.btnExit2 = new DevComponents.DotNetBar.ButtonX();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.btnPrint2 = new DevComponents.DotNetBar.ButtonX();
+            this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.labelX4 = new DevComponents.DotNetBar.LabelX();
+            this.tabItem2 = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
+            this.btnExit1 = new DevComponents.DotNetBar.ButtonX();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupPanel10 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.listViewEx1 = new DevComponents.DotNetBar.Controls.ListViewEx();
@@ -69,13 +79,6 @@
             this.cbxSelectAllPeriod = new System.Windows.Forms.CheckBox();
             this.btnPrint1 = new DevComponents.DotNetBar.ButtonX();
             this.tabItem1 = new DevComponents.DotNetBar.TabItem(this.components);
-            this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
-            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
-            this.btnPrint2 = new DevComponents.DotNetBar.ButtonX();
-            this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.labelX4 = new DevComponents.DotNetBar.LabelX();
-            this.tabItem2 = new DevComponents.DotNetBar.TabItem(this.components);
-            this.btnExit = new DevComponents.DotNetBar.ButtonX();
             this.groupPanel9 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.dateTimeInput2 = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
@@ -109,10 +112,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbMeritC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbMeritB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbMeritA)).BeginInit();
-            this.tabControlPanel1.SuspendLayout();
-            this.groupPanel10.SuspendLayout();
             this.tabControlPanel2.SuspendLayout();
             this.groupPanel1.SuspendLayout();
+            this.tabControlPanel1.SuspendLayout();
+            this.groupPanel10.SuspendLayout();
             this.groupPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput1)).BeginInit();
@@ -126,8 +129,8 @@
             // 
             this.tabControl1.BackColor = System.Drawing.Color.Transparent;
             this.tabControl1.CanReorderTabs = true;
-            this.tabControl1.Controls.Add(this.tabControlPanel3);
             this.tabControl1.Controls.Add(this.tabControlPanel4);
+            this.tabControl1.Controls.Add(this.tabControlPanel3);
             this.tabControl1.Controls.Add(this.tabControlPanel1);
             this.tabControl1.Controls.Add(this.tabControlPanel2);
             this.tabControl1.Location = new System.Drawing.Point(10, 12);
@@ -146,6 +149,7 @@
             // 
             // tabControlPanel4
             // 
+            this.tabControlPanel4.Controls.Add(this.btnExit4);
             this.tabControlPanel4.Controls.Add(this.linkLabel2);
             this.tabControlPanel4.Controls.Add(this.btnPrint3);
             this.tabControlPanel4.Controls.Add(this.groupPanel8);
@@ -164,6 +168,18 @@
             this.tabControlPanel4.Style.GradientAngle = 90;
             this.tabControlPanel4.TabIndex = 0;
             this.tabControlPanel4.TabItem = this.tabItem3;
+            // 
+            // btnExit4
+            // 
+            this.btnExit4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnExit4.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit4.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnExit4.Location = new System.Drawing.Point(318, 434);
+            this.btnExit4.Name = "btnExit4";
+            this.btnExit4.Size = new System.Drawing.Size(75, 23);
+            this.btnExit4.TabIndex = 4;
+            this.btnExit4.Text = "離開";
+            this.btnExit4.Click += new System.EventHandler(this.btnExit4_Click);
             // 
             // linkLabel2
             // 
@@ -327,7 +343,9 @@
             // 
             this.tbDemeritC.BackgroundStyle.Class = "DateTimeInputBackground";
             this.tbDemeritC.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbDemeritC.ButtonFreeText.Checked = true;
             this.tbDemeritC.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.tbDemeritC.FreeTextEntryMode = true;
             this.tbDemeritC.Location = new System.Drawing.Point(290, 11);
             this.tbDemeritC.MaxValue = 999;
             this.tbDemeritC.MinValue = 0;
@@ -344,7 +362,9 @@
             // 
             this.tbDemeritB.BackgroundStyle.Class = "DateTimeInputBackground";
             this.tbDemeritB.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbDemeritB.ButtonFreeText.Checked = true;
             this.tbDemeritB.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.tbDemeritB.FreeTextEntryMode = true;
             this.tbDemeritB.Location = new System.Drawing.Point(178, 11);
             this.tbDemeritB.MaxValue = 999;
             this.tbDemeritB.MinValue = 0;
@@ -360,7 +380,9 @@
             // 
             this.tbDemeritA.BackgroundStyle.Class = "DateTimeInputBackground";
             this.tbDemeritA.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbDemeritA.ButtonFreeText.Checked = true;
             this.tbDemeritA.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.tbDemeritA.FreeTextEntryMode = true;
             this.tbDemeritA.Location = new System.Drawing.Point(66, 11);
             this.tbDemeritA.MaxValue = 999;
             this.tbDemeritA.MinValue = 0;
@@ -419,6 +441,7 @@
             // 
             // tabControlPanel3
             // 
+            this.tabControlPanel3.Controls.Add(this.btnExit3);
             this.tabControlPanel3.Controls.Add(this.linkLabel3);
             this.tabControlPanel3.Controls.Add(this.groupPanel4);
             this.tabControlPanel3.Controls.Add(this.groupPanel3);
@@ -437,6 +460,18 @@
             this.tabControlPanel3.Style.GradientAngle = 90;
             this.tabControlPanel3.TabIndex = 0;
             this.tabControlPanel3.TabItem = this.tabItem4;
+            // 
+            // btnExit3
+            // 
+            this.btnExit3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnExit3.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit3.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnExit3.Location = new System.Drawing.Point(318, 434);
+            this.btnExit3.Name = "btnExit3";
+            this.btnExit3.Size = new System.Drawing.Size(75, 23);
+            this.btnExit3.TabIndex = 4;
+            this.btnExit3.Text = "離開";
+            this.btnExit3.Click += new System.EventHandler(this.btnExit3_Click);
             // 
             // linkLabel3
             // 
@@ -608,7 +643,9 @@
             // 
             this.tbMeritC.BackgroundStyle.Class = "DateTimeInputBackground";
             this.tbMeritC.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbMeritC.ButtonFreeText.Checked = true;
             this.tbMeritC.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.tbMeritC.FreeTextEntryMode = true;
             this.tbMeritC.Location = new System.Drawing.Point(290, 11);
             this.tbMeritC.MaxValue = 999;
             this.tbMeritC.MinValue = 0;
@@ -625,7 +662,9 @@
             // 
             this.tbMeritB.BackgroundStyle.Class = "DateTimeInputBackground";
             this.tbMeritB.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbMeritB.ButtonFreeText.Checked = true;
             this.tbMeritB.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.tbMeritB.FreeTextEntryMode = true;
             this.tbMeritB.Location = new System.Drawing.Point(178, 11);
             this.tbMeritB.MaxValue = 999;
             this.tbMeritB.MinValue = 0;
@@ -641,7 +680,9 @@
             // 
             this.tbMeritA.BackgroundStyle.Class = "DateTimeInputBackground";
             this.tbMeritA.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tbMeritA.ButtonFreeText.Checked = true;
             this.tbMeritA.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.tbMeritA.FreeTextEntryMode = true;
             this.tbMeritA.Location = new System.Drawing.Point(66, 11);
             this.tbMeritA.MaxValue = 999;
             this.tbMeritA.MinValue = 0;
@@ -710,8 +751,132 @@
             this.tabItem4.Name = "tabItem4";
             this.tabItem4.Text = "懲戒特殊表現";
             // 
+            // tabControlPanel2
+            // 
+            this.tabControlPanel2.Controls.Add(this.btnExit2);
+            this.tabControlPanel2.Controls.Add(this.linkLabel4);
+            this.tabControlPanel2.Controls.Add(this.btnPrint2);
+            this.tabControlPanel2.Controls.Add(this.groupPanel1);
+            this.tabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel2.Location = new System.Drawing.Point(0, 28);
+            this.tabControlPanel2.Name = "tabControlPanel2";
+            this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
+            this.tabControlPanel2.Size = new System.Drawing.Size(409, 470);
+            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
+            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
+            this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
+            this.tabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+            this.tabControlPanel2.Style.GradientAngle = 90;
+            this.tabControlPanel2.TabIndex = 0;
+            this.tabControlPanel2.TabItem = this.tabItem2;
+            // 
+            // btnExit2
+            // 
+            this.btnExit2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnExit2.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnExit2.Location = new System.Drawing.Point(318, 434);
+            this.btnExit2.Name = "btnExit2";
+            this.btnExit2.Size = new System.Drawing.Size(75, 23);
+            this.btnExit2.TabIndex = 3;
+            this.btnExit2.Text = "離開";
+            this.btnExit2.Click += new System.EventHandler(this.btnExit2_Click);
+            // 
+            // linkLabel4
+            // 
+            this.linkLabel4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel4.Location = new System.Drawing.Point(16, 440);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(86, 17);
+            this.linkLabel4.TabIndex = 1;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "缺曠類別管理";
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
+            // 
+            // btnPrint2
+            // 
+            this.btnPrint2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnPrint2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnPrint2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnPrint2.Location = new System.Drawing.Point(237, 434);
+            this.btnPrint2.Name = "btnPrint2";
+            this.btnPrint2.Size = new System.Drawing.Size(75, 23);
+            this.btnPrint2.TabIndex = 2;
+            this.btnPrint2.Text = "列印";
+            this.btnPrint2.Click += new System.EventHandler(this.btnPrint2_Click);
+            // 
+            // groupPanel1
+            // 
+            this.groupPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.labelX4);
+            this.groupPanel1.Location = new System.Drawing.Point(19, 209);
+            this.groupPanel1.Name = "groupPanel1";
+            this.groupPanel1.Size = new System.Drawing.Size(373, 219);
+            // 
+            // 
+            // 
+            this.groupPanel1.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel1.Style.BackColorGradientAngle = 90;
+            this.groupPanel1.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel1.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderBottomWidth = 1;
+            this.groupPanel1.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel1.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderLeftWidth = 1;
+            this.groupPanel1.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderRightWidth = 1;
+            this.groupPanel1.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderTopWidth = 1;
+            this.groupPanel1.Style.Class = "";
+            this.groupPanel1.Style.CornerDiameter = 4;
+            this.groupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupPanel1.StyleMouseDown.Class = "";
+            this.groupPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupPanel1.StyleMouseOver.Class = "";
+            this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel1.TabIndex = 0;
+            this.groupPanel1.Text = "說明";
+            // 
+            // labelX4
+            // 
+            this.labelX4.AutoSize = true;
+            this.labelX4.BackColor = System.Drawing.Color.Transparent;
+            // 
+            // 
+            // 
+            this.labelX4.BackgroundStyle.Class = "";
+            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX4.Location = new System.Drawing.Point(26, 50);
+            this.labelX4.Name = "labelX4";
+            this.labelX4.Size = new System.Drawing.Size(314, 92);
+            this.labelX4.TabIndex = 0;
+            this.labelX4.Text = "※ 全勤名單所定義學生為該 學年度/學期或特定期間<br/>\r\n　無任何會影響全勤之缺曠或請假紀錄為全勤學生<br/>\r\n　(請您留意選取之班級學生於選定之學期是" +
+    "否已就學)<br/>\r\n<br/>\r\n※ 您可於缺曠類別管理中設定缺曠假別是否影響全勤。";
+            // 
+            // tabItem2
+            // 
+            this.tabItem2.AttachedControl = this.tabControlPanel2;
+            this.tabItem2.Name = "tabItem2";
+            this.tabItem2.Text = "全勤學生名單";
+            // 
             // tabControlPanel1
             // 
+            this.tabControlPanel1.Controls.Add(this.btnExit1);
             this.tabControlPanel1.Controls.Add(this.linkLabel1);
             this.tabControlPanel1.Controls.Add(this.groupPanel10);
             this.tabControlPanel1.Controls.Add(this.btnPrint1);
@@ -729,6 +894,18 @@
             this.tabControlPanel1.Style.GradientAngle = 90;
             this.tabControlPanel1.TabIndex = 0;
             this.tabControlPanel1.TabItem = this.tabItem1;
+            // 
+            // btnExit1
+            // 
+            this.btnExit1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnExit1.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnExit1.Location = new System.Drawing.Point(318, 434);
+            this.btnExit1.Name = "btnExit1";
+            this.btnExit1.Size = new System.Drawing.Size(75, 23);
+            this.btnExit1.TabIndex = 1;
+            this.btnExit1.Text = "離開";
+            this.btnExit1.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // linkLabel1
             // 
@@ -878,128 +1055,6 @@
             this.tabItem1.Name = "tabItem1";
             this.tabItem1.Text = "缺曠累計名單";
             // 
-            // tabControlPanel2
-            // 
-            this.tabControlPanel2.Controls.Add(this.linkLabel4);
-            this.tabControlPanel2.Controls.Add(this.btnPrint2);
-            this.tabControlPanel2.Controls.Add(this.groupPanel1);
-            this.tabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel2.Location = new System.Drawing.Point(0, 28);
-            this.tabControlPanel2.Name = "tabControlPanel2";
-            this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel2.Size = new System.Drawing.Size(409, 470);
-            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(254)))));
-            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(188)))), ((int)(((byte)(227)))));
-            this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(165)))), ((int)(((byte)(199)))));
-            this.tabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
-            | DevComponents.DotNetBar.eBorderSide.Bottom)));
-            this.tabControlPanel2.Style.GradientAngle = 90;
-            this.tabControlPanel2.TabIndex = 0;
-            this.tabControlPanel2.TabItem = this.tabItem2;
-            // 
-            // linkLabel4
-            // 
-            this.linkLabel4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.linkLabel4.AutoSize = true;
-            this.linkLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel4.Location = new System.Drawing.Point(16, 440);
-            this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(86, 17);
-            this.linkLabel4.TabIndex = 1;
-            this.linkLabel4.TabStop = true;
-            this.linkLabel4.Text = "缺曠類別管理";
-            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
-            // 
-            // btnPrint2
-            // 
-            this.btnPrint2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnPrint2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrint2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnPrint2.Location = new System.Drawing.Point(237, 434);
-            this.btnPrint2.Name = "btnPrint2";
-            this.btnPrint2.Size = new System.Drawing.Size(75, 23);
-            this.btnPrint2.TabIndex = 2;
-            this.btnPrint2.Text = "列印";
-            this.btnPrint2.Click += new System.EventHandler(this.btnPrint2_Click);
-            // 
-            // groupPanel1
-            // 
-            this.groupPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel1.Controls.Add(this.labelX4);
-            this.groupPanel1.Location = new System.Drawing.Point(19, 209);
-            this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(373, 219);
-            // 
-            // 
-            // 
-            this.groupPanel1.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel1.Style.BackColorGradientAngle = 90;
-            this.groupPanel1.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel1.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel1.Style.BorderBottomWidth = 1;
-            this.groupPanel1.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel1.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel1.Style.BorderLeftWidth = 1;
-            this.groupPanel1.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel1.Style.BorderRightWidth = 1;
-            this.groupPanel1.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel1.Style.BorderTopWidth = 1;
-            this.groupPanel1.Style.Class = "";
-            this.groupPanel1.Style.CornerDiameter = 4;
-            this.groupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            // 
-            // 
-            // 
-            this.groupPanel1.StyleMouseDown.Class = "";
-            this.groupPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.groupPanel1.StyleMouseOver.Class = "";
-            this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel1.TabIndex = 0;
-            this.groupPanel1.Text = "說明";
-            // 
-            // labelX4
-            // 
-            this.labelX4.AutoSize = true;
-            this.labelX4.BackColor = System.Drawing.Color.Transparent;
-            // 
-            // 
-            // 
-            this.labelX4.BackgroundStyle.Class = "";
-            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(26, 50);
-            this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(314, 92);
-            this.labelX4.TabIndex = 0;
-            this.labelX4.Text = "※ 全勤名單所定義學生為該 學年度/學期或特定期間<br/>\r\n　無任何會影響全勤之缺曠或請假紀錄為全勤學生<br/>\r\n　(請您留意選取之班級學生於選定之學期是" +
-    "否已就學)<br/>\r\n<br/>\r\n※ 您可於缺曠類別管理中設定缺曠假別是否影響全勤。";
-            // 
-            // tabItem2
-            // 
-            this.tabItem2.AttachedControl = this.tabControlPanel2;
-            this.tabItem2.Name = "tabItem2";
-            this.tabItem2.Text = "全勤學生名單";
-            // 
-            // btnExit
-            // 
-            this.btnExit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnExit.BackColor = System.Drawing.Color.Transparent;
-            this.btnExit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnExit.Location = new System.Drawing.Point(331, 474);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 1;
-            this.btnExit.Text = "離開";
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // groupPanel9
             // 
             this.groupPanel9.BackColor = System.Drawing.Color.Transparent;
@@ -1074,6 +1129,8 @@
             this.dateTimeInput2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.dateTimeInput2.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.dateTimeInput2.ButtonDropDown.Visible = true;
+            this.dateTimeInput2.ButtonFreeText.Checked = true;
+            this.dateTimeInput2.FreeTextEntryMode = true;
             this.dateTimeInput2.IsPopupCalendarOpen = false;
             this.dateTimeInput2.Location = new System.Drawing.Point(215, 131);
             // 
@@ -1133,6 +1190,8 @@
             this.dateTimeInput1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.dateTimeInput1.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.dateTimeInput1.ButtonDropDown.Visible = true;
+            this.dateTimeInput1.ButtonFreeText.Checked = true;
+            this.dateTimeInput1.FreeTextEntryMode = true;
             this.dateTimeInput1.IsPopupCalendarOpen = false;
             this.dateTimeInput1.Location = new System.Drawing.Point(34, 131);
             // 
@@ -1206,13 +1265,15 @@
             // 
             this.intSchoolYear1.BackgroundStyle.Class = "DateTimeInputBackground";
             this.intSchoolYear1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.intSchoolYear1.ButtonFreeText.Checked = true;
             this.intSchoolYear1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.intSchoolYear1.Location = new System.Drawing.Point(126, 36);
+            this.intSchoolYear1.FreeTextEntryMode = true;
+            this.intSchoolYear1.Location = new System.Drawing.Point(128, 36);
             this.intSchoolYear1.MaxValue = 999;
             this.intSchoolYear1.MinValue = 90;
             this.intSchoolYear1.Name = "intSchoolYear1";
             this.intSchoolYear1.ShowUpDown = true;
-            this.intSchoolYear1.Size = new System.Drawing.Size(61, 25);
+            this.intSchoolYear1.Size = new System.Drawing.Size(73, 25);
             this.intSchoolYear1.TabIndex = 2;
             this.intSchoolYear1.Value = 90;
             // 
@@ -1223,13 +1284,15 @@
             // 
             this.intSemester1.BackgroundStyle.Class = "DateTimeInputBackground";
             this.intSemester1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.intSemester1.ButtonFreeText.Checked = true;
             this.intSemester1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.intSemester1.Location = new System.Drawing.Point(245, 36);
+            this.intSemester1.FreeTextEntryMode = true;
+            this.intSemester1.Location = new System.Drawing.Point(263, 36);
             this.intSemester1.MaxValue = 2;
             this.intSemester1.MinValue = 1;
             this.intSemester1.Name = "intSemester1";
             this.intSemester1.ShowUpDown = true;
-            this.intSemester1.Size = new System.Drawing.Size(61, 25);
+            this.intSemester1.Size = new System.Drawing.Size(73, 25);
             this.intSemester1.TabIndex = 4;
             this.intSemester1.Value = 1;
             // 
@@ -1292,7 +1355,7 @@
             // 
             this.lbSemester1.BackgroundStyle.Class = "";
             this.lbSemester1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbSemester1.Location = new System.Drawing.Point(204, 38);
+            this.lbSemester1.Location = new System.Drawing.Point(215, 38);
             this.lbSemester1.Name = "lbSemester1";
             this.lbSemester1.Size = new System.Drawing.Size(34, 21);
             this.lbSemester1.TabIndex = 3;
@@ -1422,7 +1485,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(431, 519);
-            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.groupPanel9);
             this.Controls.Add(this.tabControl1);
             this.DoubleBuffered = true;
@@ -1447,14 +1509,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbMeritC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbMeritB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbMeritA)).EndInit();
-            this.tabControlPanel1.ResumeLayout(false);
-            this.tabControlPanel1.PerformLayout();
-            this.groupPanel10.ResumeLayout(false);
-            this.groupPanel10.PerformLayout();
             this.tabControlPanel2.ResumeLayout(false);
             this.tabControlPanel2.PerformLayout();
             this.groupPanel1.ResumeLayout(false);
             this.groupPanel1.PerformLayout();
+            this.tabControlPanel1.ResumeLayout(false);
+            this.tabControlPanel1.PerformLayout();
+            this.groupPanel10.ResumeLayout(false);
+            this.groupPanel10.PerformLayout();
             this.groupPanel9.ResumeLayout(false);
             this.groupPanel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput2)).EndInit();
@@ -1483,7 +1545,7 @@
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.DotNetBar.Controls.TextBoxX txtPeriodCount;
         private DevComponents.DotNetBar.ButtonX btnPrint1;
-        private DevComponents.DotNetBar.ButtonX btnExit;
+        private DevComponents.DotNetBar.ButtonX btnExit1;
         private DevComponents.DotNetBar.LabelX labelX4;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
         private DevComponents.DotNetBar.ButtonX btnPrint2;
@@ -1535,6 +1597,9 @@
         private DevComponents.Editors.IntegerInput tbDemeritC;
         private DevComponents.Editors.IntegerInput tbDemeritB;
         private DevComponents.Editors.IntegerInput tbDemeritA;
+        private DevComponents.DotNetBar.ButtonX btnExit3;
+        private DevComponents.DotNetBar.ButtonX btnExit4;
+        private DevComponents.DotNetBar.ButtonX btnExit2;
 
     }
 }

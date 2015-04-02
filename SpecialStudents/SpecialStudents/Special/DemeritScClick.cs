@@ -141,7 +141,7 @@ namespace SpecialStudents
             //處理排序問題
             List<string> StudentIDList = new List<string>();
 
-            foreach (string studentID in _tb.DicByMerit.Keys)
+            foreach (string studentID in _tb.DicByDemerit.Keys)
             {
                 if (!StudentIDList.Contains(studentID))
                 {
@@ -165,19 +165,22 @@ namespace SpecialStudents
                 int MeritB = 0;
                 int MeritC = 0;
 
-                foreach (MeritRecord each in _tb.DicByMerit[student.ID])
+                if (_tb.DicByMerit.ContainsKey(student.ID))
                 {
-                    int A = each.MeritA.HasValue ? each.MeritA.Value : 0;
-                    int B = each.MeritB.HasValue ? each.MeritB.Value : 0;
-                    int C = each.MeritC.HasValue ? each.MeritC.Value : 0;
+                    foreach (MeritRecord each in _tb.DicByMerit[student.ID])
+                    {
+                        int A = each.MeritA.HasValue ? each.MeritA.Value : 0;
+                        int B = each.MeritB.HasValue ? each.MeritB.Value : 0;
+                        int C = each.MeritC.HasValue ? each.MeritC.Value : 0;
 
-                    //將統計相換算成比值的基底
-                    MeritTotal += (A * _sc.Meritab * _sc.Meritbc) + (B * _sc.Meritbc) + (C);
+                        //將統計相換算成比值的基底
+                        MeritTotal += (A * _sc.Meritab * _sc.Meritbc) + (B * _sc.Meritbc) + (C);
 
 
-                    MeritA += A;
-                    MeritB += B;
-                    MeritC += C;
+                        MeritA += A;
+                        MeritB += B;
+                        MeritC += C;
+                    }
                 }
 
                 if (_tb.DicByDemerit.ContainsKey(student.ID))
@@ -188,10 +191,10 @@ namespace SpecialStudents
                             continue;
 
                         int A = each.DemeritA.HasValue ? each.DemeritA.Value : 0;
-                        int B = each.DemeritA.HasValue ? each.DemeritA.Value : 0;
-                        int C = each.DemeritA.HasValue ? each.DemeritA.Value : 0;
+                        int B = each.DemeritB.HasValue ? each.DemeritB.Value : 0;
+                        int C = each.DemeritC.HasValue ? each.DemeritC.Value : 0;
 
-                        DemeritTotal += (A * _sc.Demeritab * _sc.Demeritbc) + (B * _sc.Demeritbc) + (B);
+                        DemeritTotal += (A * _sc.Demeritab * _sc.Demeritbc) + (B * _sc.Demeritbc) + (C);
 
                         DemeritA += A;
                         DemeritB += B;
@@ -271,29 +274,30 @@ namespace SpecialStudents
                 if (!_tb.studentUbeIDList.Contains(student.ID)) //如果不包含於列印清單,就不印明細
                     continue;
 
-
-                foreach (DemeritRecord demerit in _tb.DicByDemerit[student.ID])
+                if (_tb.DicByDemerit.ContainsKey(student.ID))
                 {
-                    if (demerit.Cleared == "是")
-                        continue;
+                    foreach (DemeritRecord demerit in _tb.DicByDemerit[student.ID])
+                    {
+                        if (demerit.Cleared == "是")
+                            continue;
 
-                    //StudentRecord student = JHStudent.SelectByID(demerit.RefStudentID); //取得學生
+                        //StudentRecord student = JHStudent.SelectByID(demerit.RefStudentID); //取得學生
 
-                    obj.FormatCell(sheet2.Cells["A" + ri], student.Class.Name);
-                    obj.FormatCell(sheet2.Cells["B" + ri], student.SeatNo.HasValue ? student.SeatNo.Value.ToString() : "");
-                    obj.FormatCell(sheet2.Cells["C" + ri], student.Name);
-                    obj.FormatCell(sheet2.Cells["D" + ri], student.StudentNumber);
-                    obj.FormatCell(sheet2.Cells["E" + ri], demerit.SchoolYear.ToString());
-                    obj.FormatCell(sheet2.Cells["F" + ri], demerit.Semester.ToString());
-                    obj.FormatCell(sheet2.Cells["G" + ri], demerit.OccurDate.ToShortDateString());
-                    obj.FormatCell(sheet2.Cells["H" + ri], demerit.DemeritA.HasValue ? demerit.DemeritA.Value.ToString() : "");
-                    obj.FormatCell(sheet2.Cells["I" + ri], demerit.DemeritB.HasValue ? demerit.DemeritB.Value.ToString() : "");
-                    obj.FormatCell(sheet2.Cells["J" + ri], demerit.DemeritC.HasValue ? demerit.DemeritC.Value.ToString() : "");
-                    obj.FormatCell(sheet2.Cells["K" + ri], demerit.Reason);
-                    obj.FormatCell(sheet2.Cells["L" + ri], demerit.RegisterDate.HasValue ? demerit.RegisterDate.Value.ToShortDateString() : "");
-                    ri++;
+                        obj.FormatCell(sheet2.Cells["A" + ri], student.Class.Name);
+                        obj.FormatCell(sheet2.Cells["B" + ri], student.SeatNo.HasValue ? student.SeatNo.Value.ToString() : "");
+                        obj.FormatCell(sheet2.Cells["C" + ri], student.Name);
+                        obj.FormatCell(sheet2.Cells["D" + ri], student.StudentNumber);
+                        obj.FormatCell(sheet2.Cells["E" + ri], demerit.SchoolYear.ToString());
+                        obj.FormatCell(sheet2.Cells["F" + ri], demerit.Semester.ToString());
+                        obj.FormatCell(sheet2.Cells["G" + ri], demerit.OccurDate.ToShortDateString());
+                        obj.FormatCell(sheet2.Cells["H" + ri], demerit.DemeritA.HasValue ? demerit.DemeritA.Value.ToString() : "");
+                        obj.FormatCell(sheet2.Cells["I" + ri], demerit.DemeritB.HasValue ? demerit.DemeritB.Value.ToString() : "");
+                        obj.FormatCell(sheet2.Cells["J" + ri], demerit.DemeritC.HasValue ? demerit.DemeritC.Value.ToString() : "");
+                        obj.FormatCell(sheet2.Cells["K" + ri], demerit.Reason);
+                        obj.FormatCell(sheet2.Cells["L" + ri], demerit.RegisterDate.HasValue ? demerit.RegisterDate.Value.ToShortDateString() : "");
+                        ri++;
+                    }
                 }
-
             }
 
             #endregion
@@ -332,21 +336,24 @@ namespace SpecialStudents
                     if (!_tb.studentUbeIDList.Contains(student.ID)) //如果不包含於列印清單,就不印明細
                         continue;
 
-                    foreach (MeritRecord merit in _tb.DicByMerit[student.ID])
+                    if (_tb.DicByMerit.ContainsKey(student.ID))
                     {
-                        obj.FormatCell(sheet2_M.Cells["A" + ri_M], student.Class.Name);
-                        obj.FormatCell(sheet2_M.Cells["B" + ri_M], student.SeatNo.HasValue ? student.SeatNo.Value.ToString() : "");
-                        obj.FormatCell(sheet2_M.Cells["C" + ri_M], student.Name);
-                        obj.FormatCell(sheet2_M.Cells["D" + ri_M], student.StudentNumber);
-                        obj.FormatCell(sheet2_M.Cells["E" + ri_M], merit.SchoolYear.ToString());
-                        obj.FormatCell(sheet2_M.Cells["F" + ri_M], merit.Semester.ToString());
-                        obj.FormatCell(sheet2_M.Cells["G" + ri_M], merit.OccurDate.ToShortDateString());
-                        obj.FormatCell(sheet2_M.Cells["H" + ri_M], merit.MeritA.HasValue ? merit.MeritA.Value.ToString() : "");
-                        obj.FormatCell(sheet2_M.Cells["I" + ri_M], merit.MeritB.HasValue ? merit.MeritB.Value.ToString() : "");
-                        obj.FormatCell(sheet2_M.Cells["J" + ri_M], merit.MeritC.HasValue ? merit.MeritC.Value.ToString() : "");
-                        obj.FormatCell(sheet2_M.Cells["K" + ri_M], merit.Reason);
-                        obj.FormatCell(sheet2_M.Cells["L" + ri_M], merit.RegisterDate.HasValue ? merit.RegisterDate.Value.ToShortDateString() : "");
-                        ri_M++;
+                        foreach (MeritRecord merit in _tb.DicByMerit[student.ID])
+                        {
+                            obj.FormatCell(sheet2_M.Cells["A" + ri_M], student.Class.Name);
+                            obj.FormatCell(sheet2_M.Cells["B" + ri_M], student.SeatNo.HasValue ? student.SeatNo.Value.ToString() : "");
+                            obj.FormatCell(sheet2_M.Cells["C" + ri_M], student.Name);
+                            obj.FormatCell(sheet2_M.Cells["D" + ri_M], student.StudentNumber);
+                            obj.FormatCell(sheet2_M.Cells["E" + ri_M], merit.SchoolYear.ToString());
+                            obj.FormatCell(sheet2_M.Cells["F" + ri_M], merit.Semester.ToString());
+                            obj.FormatCell(sheet2_M.Cells["G" + ri_M], merit.OccurDate.ToShortDateString());
+                            obj.FormatCell(sheet2_M.Cells["H" + ri_M], merit.MeritA.HasValue ? merit.MeritA.Value.ToString() : "");
+                            obj.FormatCell(sheet2_M.Cells["I" + ri_M], merit.MeritB.HasValue ? merit.MeritB.Value.ToString() : "");
+                            obj.FormatCell(sheet2_M.Cells["J" + ri_M], merit.MeritC.HasValue ? merit.MeritC.Value.ToString() : "");
+                            obj.FormatCell(sheet2_M.Cells["K" + ri_M], merit.Reason);
+                            obj.FormatCell(sheet2_M.Cells["L" + ri_M], merit.RegisterDate.HasValue ? merit.RegisterDate.Value.ToShortDateString() : "");
+                            ri_M++;
+                        }
                     }
 
                 }
@@ -356,15 +363,23 @@ namespace SpecialStudents
 
         void BGW_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (e.Error == null)
+            SpecialEvent.RaiseSpecialChanged();
+            if (!e.Cancelled)
             {
-                obj.PrintNow(book, "懲戒特殊表現學生");
-                FISCA.Presentation.MotherForm.SetStatusBarMessage("列印懲戒特殊表現學生,已完成!");
+                if (e.Error == null)
+                {
+                    obj.PrintNow(book, "懲戒特殊表現學生");
+                    FISCA.Presentation.MotherForm.SetStatusBarMessage("列印懲戒特殊表現學生,已完成!");
+                }
+                else
+                {
+                    MsgBox.Show("列印時發生錯誤!!" + e.Error.Message);
+                    FISCA.Presentation.MotherForm.SetStatusBarMessage("列印懲戒特殊表現學生,發生錯誤!");
+                }
             }
             else
             {
-                MsgBox.Show("列印時發生錯誤!!" + e.Error.Message);
-                FISCA.Presentation.MotherForm.SetStatusBarMessage("列印懲戒特殊表現學生,發生錯誤!");
+                MsgBox.Show("列印作業已中止!");
             }
         }
     }

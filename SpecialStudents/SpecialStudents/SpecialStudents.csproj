@@ -112,6 +112,7 @@
     <Compile Include="Special\MeritScClick.cs" />
     <Compile Include="Special\NoAbsenceScClick.cs" />
     <Compile Include="Special\PrintObj.cs" />
+    <Compile Include="Special\SpecialEvent.cs" />
     <Compile Include="Special\SpecialForm.cs">
       <SubType>Form</SubType>
     </Compile>

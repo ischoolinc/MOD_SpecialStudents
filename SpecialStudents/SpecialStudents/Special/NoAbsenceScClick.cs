@@ -194,6 +194,8 @@ namespace SpecialStudents
 
         void BGW_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            SpecialEvent.RaiseSpecialChanged();
+
             if (!e.Cancelled)
             {
                 if (e.Error == null)

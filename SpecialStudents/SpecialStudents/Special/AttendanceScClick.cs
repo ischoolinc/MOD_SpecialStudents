@@ -53,6 +53,7 @@ namespace SpecialStudents
             if (!double.TryParse(txtPeriodCount.Text, out PeriodCount))
             {
                 MsgBox.Show("累計節次內容非數字!!");
+                SpecialEvent.RaiseSpecialChanged();
                 return;
             }
 
@@ -69,6 +70,7 @@ namespace SpecialStudents
             if (SelectAbsenceList.Count == 0)
             {
                 MsgBox.Show("至少必須選擇一個缺曠類別!");
+                SpecialEvent.RaiseSpecialChanged();
                 return;
             }
 
@@ -320,16 +322,24 @@ namespace SpecialStudents
         //列印完成
         void BGW_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (e.Error == null)
+            SpecialEvent.RaiseSpecialChanged();
+            if (!e.Cancelled)
             {
-                obj.PrintNow(book, "缺曠累計名單");
-                FISCA.Presentation.MotherForm.SetStatusBarMessage("列印缺曠累計名單,已完成!");
+                if (e.Error == null)
+                {
+                    obj.PrintNow(book, "缺曠累計名單");
+                    FISCA.Presentation.MotherForm.SetStatusBarMessage("列印缺曠累計名單,已完成!");
+                }
+                else
+                {
+                    MsgBox.Show("列印時發生錯誤!!" + e.Error.Message);
+                    FISCA.Presentation.MotherForm.SetStatusBarMessage("列印缺曠累計名單,發生錯誤!");
+
+                }
             }
             else
             {
-                MsgBox.Show("列印時發生錯誤!!" + e.Error.Message);
-                FISCA.Presentation.MotherForm.SetStatusBarMessage("列印缺曠累計名單,發生錯誤!");
-
+                MsgBox.Show("列印作業已中止!");
             }
         }
     }

@@ -53,6 +53,7 @@ namespace SpecialStudents
         {
             BGW.DoWork += new DoWorkEventHandler(BGW_DoWork);
             BGW.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BGW_RunWorkerCompleted);
+            SpecialEvent.SpecialChanged += new EventHandler(SpecialEvent_ClubChanged);
 
             tabControl1.Enabled = false;
             this.Text = "學生資料讀取中";
@@ -93,6 +94,15 @@ namespace SpecialStudents
             dateTimeInput1.Value = DateTime.Today.AddDays(-7);
             dateTimeInput2.Value = DateTime.Today;
 
+            tbDemeritA.Value = 0;
+            tbDemeritB.Value = 0;
+            tbDemeritC.Value = 1;
+
+            tbMeritA.Value = 0;
+            tbMeritB.Value = 0;
+            tbMeritC.Value = 1;
+
+
             foreach (string e in AttendanceIsNoabsence.Keys)
             {
                 AttendanceStringList.Add(e);
@@ -103,6 +113,8 @@ namespace SpecialStudents
         //列印"缺曠累計名單"
         private void btnPrint1_Click(object sender, EventArgs e)
         {
+            btnPrint1.Enabled = false;
+
             AttendanceScClick Atsc = new AttendanceScClick();
 
             SetConfig _sc = DefSetup();
@@ -111,9 +123,19 @@ namespace SpecialStudents
 
         }
 
+        void SpecialEvent_ClubChanged(object sender, EventArgs e)
+        {
+            btnPrint1.Enabled = true;
+            btnPrint2.Enabled = true;
+            btnPrint3.Enabled = true;
+            btnPrint4.Enabled = true;
+        }
+
         //列印"全勤學生"名單
         private void btnPrint2_Click(object sender, EventArgs e)
         {
+            btnPrint2.Enabled = false;
+
             NoAbsenceScClick NAsc = new NoAbsenceScClick();
 
             SetConfig _sc = DefSetup();
@@ -124,6 +146,7 @@ namespace SpecialStudents
         //列印"獎勵特殊表現"名單
         private void btnPrint4_Click(object sender, EventArgs e)
         {
+            btnPrint4.Enabled = false;
             MeritScClick Msc = new MeritScClick();
 
             SetConfig _sc = DefSetup();
@@ -134,6 +157,7 @@ namespace SpecialStudents
         //列印"懲戒特殊表現"名單
         private void btnPrint3_Click(object sender, EventArgs e)
         {
+            btnPrint3.Enabled = false;
             DemeritScClick Dmsc = new DemeritScClick();
 
             SetConfig _sc = DefSetup();
@@ -196,12 +220,6 @@ namespace SpecialStudents
             }
         }
 
-        //離開本功能
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         #region Link
 
 
@@ -250,6 +268,27 @@ namespace SpecialStudents
         {
             BalanceConfigForm BCForm = new BalanceConfigForm();
             BCForm.ShowDialog();
+        }
+
+        //離開本功能
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnExit2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnExit3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnExit4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
