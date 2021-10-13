@@ -70,8 +70,8 @@ namespace SpecialStudents
             {
                 //取得AutoSummary
                 AutoSummaryList = AutoSummary.Select(_StudentIDList, new List<SchoolYearSemester>(), SummaryType.Discipline);
-
                 _tb.GetSummary(AutoSummaryList);
+                _tb.GetInitialSummary(AutoSummaryList);
             }
             else if (_sc._selectMode == SelectMode.依學期)
             {
@@ -80,6 +80,7 @@ namespace SpecialStudents
                 AutoSummaryList = AutoSummary.Select(_StudentIDList, new SchoolYearSemester[] { SYS }, SummaryType.Discipline);
 
                 _tb.GetSummary(AutoSummaryList);
+                _tb.GetInitialSummary(AutoSummaryList);
             }
             else
             {
@@ -115,7 +116,7 @@ namespace SpecialStudents
             obj.FormatCell(A1, A1Name);
             //A1.PutValue(A1Name);
 
-            //sheet.Cells.Merge(0, 0, 1, 7);
+            sheet.Cells.Merge(0, 0, 1, 7);
 
             obj.FormatCell(sheet.Cells["A2"], "班級");
             obj.FormatCell(sheet.Cells["B2"], "座號");
@@ -136,12 +137,26 @@ namespace SpecialStudents
             //處理排序問題
             List<string> StudentIDList = new List<string>();
 
-            foreach (string studentID in _tb.DicByMerit.Keys)
+            if (_sc._selectMode == SelectMode.依日期) //依選擇學期
             {
-                if (!StudentIDList.Contains(studentID))
+                foreach (string studentID in _tb.DicByMerit.Keys)
                 {
-                    StudentIDList.Add(studentID);
+                    if (!StudentIDList.Contains(studentID))
+                    {
+                        StudentIDList.Add(studentID);
+                    }
                 }
+            }
+            else
+            {
+                foreach (string studentID in _tb.DicByInitialSummary.Keys)
+                {
+                    if (!StudentIDList.Contains(studentID))
+                    {
+                        StudentIDList.Add(studentID);
+                    }
+                }
+
             }
 
             List<StudentRecord> StudentList = SortClassIndex.K12Data_StudentRecord(Student.SelectByIDs(StudentIDList));
@@ -158,19 +173,41 @@ namespace SpecialStudents
                 int MeritB = 0;
                 int MeritC = 0;
 
-                if (_tb.DicByMerit.ContainsKey(student.ID))
+                if (_sc._selectMode == SelectMode.依日期)
                 {
-                    foreach (MeritRecord each in _tb.DicByMerit[student.ID])
+                    if (_tb.DicByMerit.ContainsKey(student.ID))
                     {
-                        int A = each.MeritA.HasValue ? each.MeritA.Value : 0;
-                        int B = each.MeritB.HasValue ? each.MeritB.Value : 0;
-                        int C = each.MeritC.HasValue ? each.MeritC.Value : 0;
+                        foreach (MeritRecord each in _tb.DicByMerit[student.ID])
+                        {
+                            int A = each.MeritA.HasValue ? each.MeritA.Value : 0;
+                            int B = each.MeritB.HasValue ? each.MeritB.Value : 0;
+                            int C = each.MeritC.HasValue ? each.MeritC.Value : 0;
 
-                        total += (A * _sc.Meritab * _sc.Meritbc) + (B * _sc.Meritbc) + (C);
+                            total += (A * _sc.Meritab * _sc.Meritbc) + (B * _sc.Meritbc) + (C);
 
-                        MeritA += A;
-                        MeritB += B;
-                        MeritC += C;
+                            MeritA += A;
+                            MeritB += B;
+                            MeritC += C;
+                        }
+                    }
+                }
+                else
+                {
+                    if (_tb.DicByInitialSummary.ContainsKey(student.ID))
+                    {
+                        foreach (AutoSummaryRecord summary in _tb.DicByInitialSummary[student.ID])
+                        {
+                            int A = summary.MeritA;
+                            int B = summary.MeritB;
+                            int C = summary.MeritC;
+
+                            total += (A * _sc.Meritab * _sc.Meritbc) + (B * _sc.Meritbc) + (C);
+
+                            MeritA += A;
+                            MeritB += B;
+                            MeritC += C;
+
+                        }
                     }
                 }
 
@@ -180,6 +217,7 @@ namespace SpecialStudents
                 _tb.studentUbeIDList.Add(student.ID);
 
                 int rowIndex = index + 2;
+
                 obj.FormatCell(sheet.Cells["A" + rowIndex], student.Class.Name);
                 obj.FormatCell(sheet.Cells["B" + rowIndex], student.SeatNo.HasValue ? student.SeatNo.Value.ToString() : "");
                 obj.FormatCell(sheet.Cells["C" + rowIndex], student.Name);
@@ -200,7 +238,7 @@ namespace SpecialStudents
             titleCell = tool.UserStyle(titleCell);
 
             titleCell.PutValue(School.ChineseName + "　獎勵累計明細");
-            //sheet2.Cells.Merge(0, 0, 1, 12);
+            sheet2.Cells.Merge(0, 0, 1, 12);
 
             #region 欄位Title
             obj.FormatCell(sheet2.Cells["A2"], "班級");
@@ -227,27 +265,82 @@ namespace SpecialStudents
                 if (!_tb.studentUbeIDList.Contains(student.ID)) //如果不包含於列印清單
                     continue;
 
-                if (_tb.DicByMerit.ContainsKey(student.ID))
+                if (_sc._selectMode == SelectMode.依日期)
                 {
-                    foreach (MeritRecord merit in _tb.DicByMerit[student.ID])
+                    if (_tb.DicByMerit.ContainsKey(student.ID))
                     {
+                        foreach (MeritRecord merit in _tb.DicByMerit[student.ID])
+                        {
+                            obj.FormatCell(sheet2.Cells["A" + ri], student.Class.Name);
+                            obj.FormatCell(sheet2.Cells["B" + ri], student.SeatNo.HasValue ? student.SeatNo.Value.ToString() : "");
+                            obj.FormatCell(sheet2.Cells["C" + ri], student.Name);
+                            obj.FormatCell(sheet2.Cells["D" + ri], student.StudentNumber);
+                            obj.FormatCell(sheet2.Cells["E" + ri], merit.SchoolYear.ToString());
+                            obj.FormatCell(sheet2.Cells["F" + ri], merit.Semester.ToString());
+                            obj.FormatCell(sheet2.Cells["G" + ri], merit.OccurDate.ToShortDateString());
+                            obj.FormatCell(sheet2.Cells["H" + ri], merit.MeritA.HasValue ? merit.MeritA.Value.ToString() : "");
+                            obj.FormatCell(sheet2.Cells["I" + ri], merit.MeritB.HasValue ? merit.MeritB.Value.ToString() : "");
+                            obj.FormatCell(sheet2.Cells["J" + ri], merit.MeritC.HasValue ? merit.MeritC.Value.ToString() : "");
+                            obj.FormatCell(sheet2.Cells["K" + ri], merit.Reason);
+                            obj.FormatCell(sheet2.Cells["L" + ri], merit.RegisterDate.HasValue ? merit.RegisterDate.Value.ToShortDateString() : "");
 
-                        //StudentRecord student = JHStudent.SelectByID(each.RefStudentID); //取得學生
+                            ri++;
+                        }
+                    }
+                }
+                else
+                {
+                    if (_tb.DicByMerit.ContainsKey(student.ID))
+                    {
+                        foreach (MeritRecord merit in _tb.DicByMerit[student.ID])
+                        {
+                            obj.FormatCell(sheet2.Cells["A" + ri], student.Class.Name);
+                            obj.FormatCell(sheet2.Cells["B" + ri], student.SeatNo.HasValue ? student.SeatNo.Value.ToString() : "");
+                            obj.FormatCell(sheet2.Cells["C" + ri], student.Name);
+                            obj.FormatCell(sheet2.Cells["D" + ri], student.StudentNumber);
+                            obj.FormatCell(sheet2.Cells["E" + ri], merit.SchoolYear.ToString());
+                            obj.FormatCell(sheet2.Cells["F" + ri], merit.Semester.ToString());
+                            obj.FormatCell(sheet2.Cells["G" + ri], merit.OccurDate.ToShortDateString());
+                            obj.FormatCell(sheet2.Cells["H" + ri], merit.MeritA.HasValue ? merit.MeritA.Value.ToString() : "");
+                            obj.FormatCell(sheet2.Cells["I" + ri], merit.MeritB.HasValue ? merit.MeritB.Value.ToString() : "");
+                            obj.FormatCell(sheet2.Cells["J" + ri], merit.MeritC.HasValue ? merit.MeritC.Value.ToString() : "");
+                            obj.FormatCell(sheet2.Cells["K" + ri], merit.Reason);
+                            obj.FormatCell(sheet2.Cells["L" + ri], merit.RegisterDate.HasValue ? merit.RegisterDate.Value.ToShortDateString() : "");
 
-                        obj.FormatCell(sheet2.Cells["A" + ri], student.Class.Name);
-                        obj.FormatCell(sheet2.Cells["B" + ri], student.SeatNo.HasValue ? student.SeatNo.Value.ToString() : "");
-                        obj.FormatCell(sheet2.Cells["C" + ri], student.Name);
-                        obj.FormatCell(sheet2.Cells["D" + ri], student.StudentNumber);
-                        obj.FormatCell(sheet2.Cells["E" + ri], merit.SchoolYear.ToString());
-                        obj.FormatCell(sheet2.Cells["F" + ri], merit.Semester.ToString());
-                        obj.FormatCell(sheet2.Cells["G" + ri], merit.OccurDate.ToShortDateString());
-                        obj.FormatCell(sheet2.Cells["H" + ri], merit.MeritA.HasValue ? merit.MeritA.Value.ToString() : "");
-                        obj.FormatCell(sheet2.Cells["I" + ri], merit.MeritB.HasValue ? merit.MeritB.Value.ToString() : "");
-                        obj.FormatCell(sheet2.Cells["J" + ri], merit.MeritC.HasValue ? merit.MeritC.Value.ToString() : "");
-                        obj.FormatCell(sheet2.Cells["K" + ri], merit.Reason);
-                        obj.FormatCell(sheet2.Cells["L" + ri], merit.RegisterDate.HasValue ? merit.RegisterDate.Value.ToShortDateString() : "");
+                            ri++;
+                        }
+                    }
 
-                        ri++;
+                    //2021/9/22 - 如果是依學期就使用非明細統計
+                    if (_tb.DicByInitialSummary.ContainsKey(student.ID))
+                    {
+                        foreach (AutoSummaryRecord summary in _tb.DicByInitialSummary[student.ID])
+                        {
+                            try
+                            {
+                                if (summary.InitialMeritA + summary.InitialMeritB + summary.InitialMeritC > 0)
+                                {
+                                    obj.FormatCell(sheet2.Cells["A" + ri], student.Class.Name);
+                                    obj.FormatCell(sheet2.Cells["B" + ri], student.SeatNo.HasValue ? student.SeatNo.Value.ToString() : "");
+                                    obj.FormatCell(sheet2.Cells["C" + ri], student.Name);
+                                    obj.FormatCell(sheet2.Cells["D" + ri], student.StudentNumber);
+                                    obj.FormatCell(sheet2.Cells["E" + ri], "" + summary.SchoolYear);
+                                    obj.FormatCell(sheet2.Cells["F" + ri], "" + summary.Semester);
+                                    obj.FormatCell(sheet2.Cells["G" + ri], "");
+                                    obj.FormatCell(sheet2.Cells["H" + ri], "" + summary.InitialMeritA);
+                                    obj.FormatCell(sheet2.Cells["I" + ri], "" + summary.InitialMeritB);
+                                    obj.FormatCell(sheet2.Cells["J" + ri], "" + summary.InitialMeritC);
+                                    obj.FormatCell(sheet2.Cells["K" + ri], "(非明細資料)");
+                                    obj.FormatCell(sheet2.Cells["L" + ri], "");
+
+                                    ri++;
+                                }
+                            }
+                            catch
+                            {
+                                //沒有 Initial 就把錯誤吃掉...
+                            }
+                        }
                     }
                 }
             }

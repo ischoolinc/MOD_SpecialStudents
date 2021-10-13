@@ -129,7 +129,7 @@ namespace SpecialStudents
             style.Borders.SetStyle(CellBorderType.Hair);
             style.Borders.SetColor(Color.Black);
             style.Borders.DiagonalStyle = CellBorderType.None;
-            style.HorizontalAlignment = TextAlignmentType.Left;
+            style.HorizontalAlignment = TextAlignmentType.Center;
 
             cell.SetStyle(style);
         }

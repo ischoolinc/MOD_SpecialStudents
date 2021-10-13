@@ -26,6 +26,11 @@ namespace SpecialStudents
         public Dictionary<string, List<MeritRecord>> DicByMerit = new Dictionary<string, List<MeritRecord>>();
 
         /// <summary>
+        /// 獎勵+懲戒統計資料
+        /// </summary>
+        public Dictionary<string, List<AutoSummaryRecord>> DicByInitialSummary = new Dictionary<string, List<AutoSummaryRecord>>();
+
+        /// <summary>
         /// 大於使用者設定之學生ID清單
         /// </summary>
         public List<string> studentUbeIDList = new List<string>();
@@ -54,6 +59,21 @@ namespace SpecialStudents
                     }
                     DicByDemerit[demerit.RefStudentID].Add(demerit);
                 }
+            }
+        }
+
+        /// <summary>
+        /// 取得統計資料
+        /// </summary>
+        public void GetInitialSummary(List<AutoSummaryRecord> AutoSummaryList)
+        {
+            foreach (AutoSummaryRecord each in AutoSummaryList)
+            {
+                if (!DicByInitialSummary.ContainsKey(each.RefStudentID))
+                {
+                    DicByInitialSummary.Add(each.RefStudentID, new List<AutoSummaryRecord>());
+                }
+                DicByInitialSummary[each.RefStudentID].Add(each);
             }
         }
 
