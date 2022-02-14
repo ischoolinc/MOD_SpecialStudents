@@ -259,7 +259,7 @@ namespace SpecialStudents
                     DemeritTotal -= MeritTotal;
                 }
 
-                if (DemeritTotal < _sc.Demeritwant || DemeritTotal == 0) continue; //如果小於基底數,就下一個學生
+                if (DemeritTotal < _sc.Demeritwant) continue; //如果小於基底數,就下一個學生
 
                 _tb.studentUbeIDList.Add(student.ID);
 

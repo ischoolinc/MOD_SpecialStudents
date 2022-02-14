@@ -85,7 +85,7 @@ namespace SpecialStudents
             //計算出基數
             Meritwant = (MeritCountA * Meritab * Meritbc) + (MeritCountB * Meritbc) + MeritCountC;
 
-            Demeritwant = (DemeritCountA * Meritab * Meritbc) + (DemeritCountB * Meritbc) + DemeritCountC;
+            Demeritwant = (DemeritCountA * Demeritab * Demeritbc) + (DemeritCountB * Demeritbc) + DemeritCountC;
         }
 
         #endregion

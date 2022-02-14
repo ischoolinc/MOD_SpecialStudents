@@ -212,7 +212,7 @@ namespace SpecialStudents
                 }
 
                 //如果小於基底數,就下一個學生
-                if (total < _sc.Meritwant || total == 0) continue;
+                if (total < _sc.Meritwant) continue;
 
                 _tb.studentUbeIDList.Add(student.ID);
 
