@@ -91,7 +91,7 @@ namespace SpecialStudents
             Cell A1 = sheet.Cells["A1"];
             A1 = tool.UserStyle(A1);
 
-            string A1Name = School.ChineseName + "　懲戒特殊表現學生";
+            string A1Name = School.ChineseName + "\n懲戒特殊表現學生";
 
             if (_sc._selectMode == SelectMode.依學期)
             {
@@ -106,8 +106,14 @@ namespace SpecialStudents
                 A1Name += "(所有學期)";
             }
 
+            Aspose.Cells.Row row = sheet.Cells.Rows[0];
+            row.Height = 30;
+
             //A1.PutValue(A1Name);
-            obj.FormatCell(A1, A1Name);
+            obj.FormatCell_2(A1, A1Name);
+
+
+
             if (_cbxIsMeritAndDemerit)
             {
                 sheet.Cells.Merge(0, 0, 1, 11);
@@ -292,10 +298,14 @@ namespace SpecialStudents
             int sheetIndex = book.Worksheets.Add(); //再加一個Sheet
             Worksheet sheet2 = book.Worksheets[sheetIndex];
             sheet2.Name = "懲戒明細";
-            Cell titleCell = sheet2.Cells["A1"];
-            titleCell.PutValue(School.ChineseName + "　懲戒明細");
+            //Cell titleCell = sheet2.Cells["A1"];
+            //titleCell.PutValue(School.ChineseName + "\n懲戒明細");
+            //titleCell = tool.UserStyle(titleCell);
 
-            titleCell = tool.UserStyle(titleCell);
+            //New
+            Aspose.Cells.Row row_sheet2 = sheet2.Cells.Rows[0];
+            row_sheet2.Height = 30;
+            obj.FormatCell_2(sheet2.Cells["A1"], School.ChineseName + "\n懲戒明細");
 
             sheet2.Cells.Merge(0, 0, 1, 12);
 
@@ -420,10 +430,14 @@ namespace SpecialStudents
                 int sheetIndex_M = book.Worksheets.Add(); //再加一個Sheet
                 Worksheet sheet2_M = book.Worksheets[sheetIndex_M];
                 sheet2_M.Name = "獎勵明細";
-                Cell titleCell_M = sheet2_M.Cells["A1"];
-                titleCell_M = tool.UserStyle(titleCell_M);
 
-                titleCell_M.PutValue(School.ChineseName + "　獎勵明細");
+                //Cell titleCell_M = sheet2_M.Cells["A1"];
+                //titleCell_M = tool.UserStyle(titleCell_M);
+                //titleCell_M.PutValue(School.ChineseName + "\n獎勵明細");
+
+                Aspose.Cells.Row row_sheet3 = sheet2_M.Cells.Rows[0];
+                row_sheet3.Height = 30;
+                obj.FormatCell_2(sheet2_M.Cells["A1"], School.ChineseName + "\n獎勵明細");
 
                 sheet2_M.Cells.Merge(0, 0, 1, 12);
 

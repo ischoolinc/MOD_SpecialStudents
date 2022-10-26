@@ -125,12 +125,31 @@ namespace SpecialStudents
             cell.PutValue(value);
 
             Style style = cell.GetStyle();
-
+            style.IsTextWrapped = true;
             style.Borders.SetStyle(CellBorderType.Hair);
             style.Borders.SetColor(Color.Black);
             style.Borders.DiagonalStyle = CellBorderType.None;
             style.HorizontalAlignment = TextAlignmentType.Center;
+            style.VerticalAlignment = TextAlignmentType.Center;
+            cell.SetStyle(style);
+        }
 
+        /// <summary>
+        /// 格式化Cell
+        /// 1.水平垂直置中
+        /// 2.自動換行
+        /// </summary>
+        public void FormatCell_2(Cell cell, string value)
+        {
+            cell.PutValue(value);
+
+            Style style = cell.GetStyle();
+            style.IsTextWrapped = true;
+            style.Borders.SetStyle(CellBorderType.Hair);
+            style.Borders.SetColor(Color.Black);
+            style.Borders.DiagonalStyle = CellBorderType.None;
+            style.HorizontalAlignment = TextAlignmentType.Center;
+            style.VerticalAlignment = TextAlignmentType.Center;
             cell.SetStyle(style);
         }
 

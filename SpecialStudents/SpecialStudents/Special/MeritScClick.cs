@@ -98,7 +98,7 @@ namespace SpecialStudents
             Cell A1 = sheet.Cells["A1"];
             A1 = tool.UserStyle(A1);
 
-            string A1Name = School.ChineseName + "　獎勵特殊表現學生";
+            string A1Name = School.ChineseName + "\n獎勵特殊表現學生";
 
             if (_sc._selectMode == SelectMode.依學期)
             {
@@ -113,10 +113,23 @@ namespace SpecialStudents
                 A1Name += "(所有學期)";
             }
 
-            obj.FormatCell(A1, A1Name);
+            //obj.FormatCell(A1, A1Name);
             //A1.PutValue(A1Name);
 
+            Aspose.Cells.Row row = sheet.Cells.Rows[0];
+            row.Height = 30;
+            obj.FormatCell_2(A1, A1Name);
+
             sheet.Cells.Merge(0, 0, 1, 7);
+
+            sheet.Cells.Columns[0].Width = 10;
+            sheet.Cells.Columns[1].Width = 10;
+            sheet.Cells.Columns[2].Width = 10;
+            sheet.Cells.Columns[3].Width = 10;
+            sheet.Cells.Columns[4].Width = 10;
+            sheet.Cells.Columns[5].Width = 10;
+            sheet.Cells.Columns[6].Width = 10;
+            sheet.Cells.Columns[7].Width = 10;
 
             obj.FormatCell(sheet.Cells["A2"], "班級");
             obj.FormatCell(sheet.Cells["B2"], "座號");
@@ -233,11 +246,14 @@ namespace SpecialStudents
             Worksheet sheet2 = book.Worksheets[sheetIndex];
             sheet2.Name = "獎勵累計明細";
 
-            Cell titleCell = sheet2.Cells["A1"];
+            //Cell titleCell = sheet2.Cells["A1"];
+            //titleCell = tool.UserStyle(titleCell);
+            //titleCell.PutValue(School.ChineseName + "\n獎勵累計明細");
 
-            titleCell = tool.UserStyle(titleCell);
+            Aspose.Cells.Row row_sheet2 = sheet2.Cells.Rows[0];
+            row_sheet2.Height = 30;
+            obj.FormatCell_2(sheet2.Cells["A1"], School.ChineseName + "\n獎勵累計明細");
 
-            titleCell.PutValue(School.ChineseName + "　獎勵累計明細");
             sheet2.Cells.Merge(0, 0, 1, 12);
 
             #region 欄位Title

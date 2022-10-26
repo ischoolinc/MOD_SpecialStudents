@@ -85,7 +85,7 @@ namespace SpecialStudents
             Cell A1 = sheet.Cells["A1"];
             A1 = tool.UserStyle(A1);
 
-            string A1Name = School.ChineseName + "　全勤學生清單";
+            string A1Name = School.ChineseName + "\n全勤學生清單";
             if (_sc._selectMode == SelectMode.依學期)
             {
                 A1Name += "　(" + _sc._SchoolYear.ToString() + " / " + _sc._Semester.ToString() + ")";
@@ -100,8 +100,16 @@ namespace SpecialStudents
             }
 
             //A1.PutValue(A1Name);
-            obj.FormatCell(A1, A1Name);
-            //sheet.Cells.Merge(0, 0, 1, 5);
+            Aspose.Cells.Row row = sheet.Cells.Rows[0];
+            row.Height = 30;
+            obj.FormatCell_2(A1, A1Name);
+            sheet.Cells.Merge(0, 0, 1, 5);
+
+            sheet.Cells.Columns[0].Width = 14;
+            sheet.Cells.Columns[1].Width = 14;
+            sheet.Cells.Columns[2].Width = 14;
+            sheet.Cells.Columns[3].Width = 14;
+            sheet.Cells.Columns[4].Width = 14;
 
             obj.FormatCell(sheet.Cells["A2"], "編號");
             obj.FormatCell(sheet.Cells["B2"], "班級");

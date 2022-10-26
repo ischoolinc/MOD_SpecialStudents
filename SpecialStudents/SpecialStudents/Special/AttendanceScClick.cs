@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Aspose.Cells;
 using System.ComponentModel;
 using K12.BusinessLogic;
+using System.Drawing;
 
 namespace SpecialStudents
 {
@@ -115,9 +116,9 @@ namespace SpecialStudents
             sheet.Name = "缺曠累計名單";
 
             //將格子合併
-            //sheet.Cells.Merge(0, 0, 1, 5 + SelectAbsenceList.Count);
+            sheet.Cells.Merge(0, 0, 1, 5 + SelectAbsenceList.Count);
 
-            string A1Name = School.ChineseName + "　缺曠累計名單";
+            string A1Name = School.ChineseName + "\n缺曠累計名單";
             if (_sc._selectMode == SelectMode.依學期)
             {
                 A1Name += "　(" + _sc._SchoolYear.ToString() + " / " + _sc._Semester.ToString() + ")";
@@ -131,13 +132,17 @@ namespace SpecialStudents
                 A1Name += "(所有學期)";
             }
 
+
             //sheet.Cells[0, 0].PutValue(A1Name);
-            obj.FormatCell(sheet.Cells[0, 0], A1Name);
+
+            Aspose.Cells.Row row = sheet.Cells.Rows[0];
+            row.Height = 30;
+            obj.FormatCell_2(sheet.Cells[0, 0], A1Name);
 
             obj.FormatCell(sheet.Cells[1, 0], "班級");
             obj.FormatCell(sheet.Cells[1, 1], "座號");
-            sheet.Cells[1, 2].PutValue("姓名");
-            sheet.Cells[1, 3].PutValue("學號");
+            obj.FormatCell(sheet.Cells[1, 2], "姓名");
+            obj.FormatCell(sheet.Cells[1, 3], "學號");
 
             Dictionary<string, int> saveAttAddress1 = new Dictionary<string, int>();
 
@@ -145,10 +150,11 @@ namespace SpecialStudents
             foreach (string var in SelectAbsenceList) //依選擇的假別
             {
                 saveAttAddress1.Add(var, countList); //記錄定位
-                sheet.Cells[1, countList].PutValue(var);
+                obj.FormatCell(sheet.Cells[1, countList], var);
+
                 countList++;
             }
-            sheet.Cells[1, countList].PutValue("累積節次");
+            obj.FormatCell(sheet.Cells[1, countList], "累積節次");
 
             int cellcount = 2; //ROW的Index
             //int _MergeInt = 0; 
@@ -179,22 +185,26 @@ namespace SpecialStudents
                 if (xyz >= PeriodCount)
                 {
                     //班級
-                    sheet.Cells[cellcount, 0].PutValue(student.Class.Name);
+                    obj.FormatCell(sheet.Cells[cellcount, 0], student.Class.Name);
+
                     //座號
-                    sheet.Cells[cellcount, 1].PutValue(student.SeatNo.HasValue ? student.SeatNo.Value.ToString() : "");
+                    obj.FormatCell(sheet.Cells[cellcount, 1], student.SeatNo.HasValue ? student.SeatNo.Value.ToString() : "");
+
                     //姓名
-                    sheet.Cells[cellcount, 2].PutValue(student.Name);
+                    obj.FormatCell(sheet.Cells[cellcount, 2], student.Name);
+
                     //學號
-                    sheet.Cells[cellcount, 3].PutValue(student.StudentNumber);
+                    obj.FormatCell(sheet.Cells[cellcount, 3], student.StudentNumber);
+
                     //權重累積
-                    sheet.Cells[cellcount, countList].PutValue(xyz);
+                    obj.FormatCell(sheet.Cells[cellcount, countList], "" + xyz);
 
                     //數量
                     foreach (string invar in studentAttendance2[var].Keys) //取得假別
                     {
                         if (saveAttAddress1.ContainsKey(invar)) //是否有在定位內
                         {
-                            sheet.Cells[cellcount, saveAttAddress1[invar]].PutValue(studentAttendance2[var][invar]);
+                            obj.FormatCell(sheet.Cells[cellcount, saveAttAddress1[invar]], ""+studentAttendance2[var][invar]);
                         }
                     }
 
