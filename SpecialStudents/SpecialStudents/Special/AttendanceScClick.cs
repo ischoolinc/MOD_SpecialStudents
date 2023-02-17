@@ -257,11 +257,11 @@ namespace SpecialStudents
                         dic[each.RefStudentID].Add(per.AbsenceType, 0); //預設為0
                     }
 
-                    string perTyp = _PeriodTypeDic[per.Period];
-
                     //是否為目前節次清單內
                     if (_PeriodTypeDic.ContainsKey(per.Period))
                     {
+                        string perTyp = _PeriodTypeDic[per.Period];
+
                         //是否為設定中的節次類型 : 一般或集會
                         if (cdName.ContainsKey(perTyp))
                         {
