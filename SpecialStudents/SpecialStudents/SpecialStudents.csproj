@@ -109,6 +109,7 @@
       <DependentUpon>BalanceConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Special\DemeritScClick.cs" />
+    <Compile Include="Special\MerDemerAllScClick.cs" />
     <Compile Include="Special\MeritScClick.cs" />
     <Compile Include="Special\NoAbsenceScClick.cs" />
     <Compile Include="Special\PrintObj.cs" />

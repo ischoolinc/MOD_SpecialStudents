@@ -165,6 +165,17 @@ namespace SpecialStudents
             Dmsc.Print(_sc, cbxIsMeritAndDemerit);
         }
 
+        private void btnPrint5_Click(object sender, EventArgs e)
+        {
+            btnPrint5.Enabled = false;
+            MerDemerAllScClick Dmsc = new MerDemerAllScClick();
+
+            SetConfig _sc = DefSetup();
+
+            Dmsc.Print(_sc);
+
+        }
+
         private SetConfig DefSetup()
         {
             SelectMode _Select = SelectMode.依學期;
@@ -287,6 +298,11 @@ namespace SpecialStudents
         }
 
         private void btnExit4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnExit5_Click(object sender, EventArgs e)
         {
             this.Close();
         }
