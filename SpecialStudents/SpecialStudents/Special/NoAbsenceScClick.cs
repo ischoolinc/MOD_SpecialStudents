@@ -187,6 +187,9 @@ namespace SpecialStudents
                     if (!_AttendanceIsNoabsence.ContainsKey(count.Name)) //不包含假別中就離開
                         continue;
 
+                    if (count.PeriodType != "一般")
+                        continue;
+
                     if (!_AttendanceIsNoabsence[count.Name]) //True就是不影響全勤
                     {
                         if (!sa.StudentAbsenceList.Contains(each.RefStudentID)) //如果沒有就加入

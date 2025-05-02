@@ -139,11 +139,11 @@
             // 
             this.tabControl1.BackColor = System.Drawing.Color.Transparent;
             this.tabControl1.CanReorderTabs = true;
+            this.tabControl1.Controls.Add(this.tabControlPanel2);
+            this.tabControl1.Controls.Add(this.tabControlPanel1);
             this.tabControl1.Controls.Add(this.tabControlPanel6);
             this.tabControl1.Controls.Add(this.tabControlPanel3);
             this.tabControl1.Controls.Add(this.tabControlPanel4);
-            this.tabControl1.Controls.Add(this.tabControlPanel1);
-            this.tabControl1.Controls.Add(this.tabControlPanel2);
             this.tabControl1.Location = new System.Drawing.Point(10, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedTabFont = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
@@ -1192,12 +1192,12 @@
             // 
             this.labelX4.BackgroundStyle.Class = "";
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(77, 50);
+            this.labelX4.Location = new System.Drawing.Point(77, 22);
             this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(314, 92);
+            this.labelX4.Size = new System.Drawing.Size(314, 128);
             this.labelX4.TabIndex = 0;
             this.labelX4.Text = "※ 全勤名單所定義學生為該 學年度/學期或特定期間<br/>\r\n　無任何會影響全勤之缺曠或請假紀錄為全勤學生<br/>\r\n　(請您留意選取之班級學生於選定之學期是" +
-    "否已就學)<br/>\r\n<br/>\r\n※ 您可於缺曠類別管理中設定缺曠假別是否影響全勤。";
+    "否已就學)<br/>\r\n<br/>\r\n※ 您可於缺曠類別管理中設定缺曠假別是否影響全勤。<br/><br/>\r\n※ 僅統計一般節次";
             // 
             // tabItem2
             // 
