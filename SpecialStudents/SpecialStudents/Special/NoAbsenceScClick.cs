@@ -10,6 +10,8 @@ using System.Drawing;
 using System.ComponentModel;
 using FISCA.Presentation.Controls;
 using K12.BusinessLogic;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
+using System.Data;
 
 namespace SpecialStudents
 {
@@ -29,6 +31,11 @@ namespace SpecialStudents
 
         SetConfig _sc { get; set; }
 
+        /// <summary>
+        /// 每日節次
+        /// </summary>
+        Dictionary<string, string> PeriodTypeDic { get; set; }
+
         public void print(SetConfig sc, Dictionary<string, bool> AttendanceIsNoabsence)
         {
             _sc = sc;
@@ -41,9 +48,35 @@ namespace SpecialStudents
 
         }
 
+
         void BGW_DoWork(object sender, DoWorkEventArgs e)
         {
             obj = new PrintObj();
+
+            PeriodTypeDic = new Dictionary<string, string>();
+            DataTable dt = tool._Q.Select(@"
+SELECT
+      array_to_string(xpath('/Period/@CoursePeriod', each_period.period), '')::text as CoursePeriod,
+            array_to_string(xpath('/Period/@Name', each_period.period), '')::text as Name,
+                  array_to_string(xpath('/Period/@Type', each_period.period), '')::text as Type,
+	array_to_string(xpath('/Period/@Sort', each_period.period), '')::text as Sort
+FROM (
+               SELECT 
+                  unnest(xpath('/Periods/Period', xmlparse(content content))) as period
+               FROM list 
+                      WHERE name = '節次對照表'
+) as each_period
+");
+            foreach (DataRow rowt in dt.Rows)
+            {
+                string Name = "" + rowt["Name"];
+                string Type = "" + rowt["Type"];
+                if (!PeriodTypeDic.ContainsKey(Name))
+                {
+                    PeriodTypeDic.Add(Name, Type);
+                }
+            }
+
 
             List<string> _StudentIDList = _sc.GetStudentIdList();
 
@@ -147,6 +180,13 @@ namespace SpecialStudents
 
                 foreach (AttendancePeriod perid in ar.PeriodDetail)
                 {
+                    //如果節次類型不是一般就跳出
+                    if (PeriodTypeDic.ContainsKey(perid.Period))
+                    {
+                        if (PeriodTypeDic[perid.Period] != "一般")
+                            continue;
+                    }
+
                     //是否影響全勤判斷
                     //不包含假別中就離開
                     if (!_AttendanceIsNoabsence.ContainsKey(perid.AbsenceType))
